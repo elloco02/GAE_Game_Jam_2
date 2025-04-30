@@ -10,7 +10,7 @@ format is edited to this example:
 
 ## [Unreleased]
 ### Added
-- 
+- Added basic Scene manager [Issue 1](https://github.com/elloco02/GAE_Game_Jam_2/issues/1)
 ### Changed
 - 
 ### Removed
