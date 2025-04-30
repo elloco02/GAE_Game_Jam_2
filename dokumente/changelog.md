@@ -1,12 +1,17 @@
-## Change Log Nummer: ______
+# Changelog
 
-### Arbeitstitel:
-____________________________________________________________________
+All notable changes to this project will be documented in this file.
 
-### Änderungen:
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-| Datum       | Design-Änderung                             | Grund für die Änderung                    |
-|-------------|---------------------------------------------|-------------------------------------------|
-|             |                                             |                                           |
-|             |                                             |                                           |
-|             |                                             |                                           |
+format is edited to this example:
+- Design Change Info, Why Changed, Date [Issue name](link to issue)
+
+## [Unreleased]
+### Added
+- 
+### Changed
+- 
+### Removed
+-
