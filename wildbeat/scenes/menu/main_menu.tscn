@@ -38,7 +38,7 @@ alignment = 1
 [node name="Play" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
 layout_mode = 2
 text = "Play Game"
-scene_path = "res://scenes/level/level_1.tscn"
+scene_path = "res://scenes/level/game_level.tscn"
 
 [node name="Settings" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
 layout_mode = 2
