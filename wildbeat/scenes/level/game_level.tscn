@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://60y25u23qmk0"]
+[gd_scene load_steps=11 format=4 uid="uid://60y25u23qmk0"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
 [ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="3_8vk10"]
 [ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="3_45x5i"]
+[ext_resource type="PackedScene" uid="uid://bt6shla866s4b" path="res://scenes/falling_objects/object_spawner.tscn" id="5_k86hv"]
+[ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
 texture = ExtResource("2_4k7sf")
@@ -45,6 +47,9 @@ sources/0 = SubResource("TileSetAtlasSource_8vk10")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45x5i"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k86hv"]
+size = Vector2(752, 16)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_7comb")
 
@@ -61,8 +66,35 @@ script = ExtResource("3_45x5i")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_45x5i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_8vk10")
+
+[node name="ObjectSpawner" parent="." instance=ExtResource("5_k86hv")]
+position = Vector2(168, 118)
+
+[node name="WorldBorder" type="Area2D" parent="."]
+position = Vector2(376, 632)
+script = ExtResource("6_is3dy")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorder"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -8.0
+offset_right = 376.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.60981e-07, 0.501618, 0.127517, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+light_mask = 4
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_k86hv")
