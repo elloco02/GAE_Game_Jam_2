@@ -24,6 +24,11 @@ GameManager="*res://scripts/globals/game_manager.gd"
 
 window/size/viewport_width=750
 
+[global_group]
+
+damaging_objects=""
+player=""
+
 [input]
 
 move_left={
