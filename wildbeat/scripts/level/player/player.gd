@@ -1,12 +1,13 @@
+class_name Player
 extends Node2D
 
-@onready var board : TileMapLayer = get_parent().get_node("Board")
+@onready var board: TileMapLayer = get_parent().get_node("Board")
 
 const COLUMNS := 5
-const TILES_PER_COLUMN : int = 6
-const BORDER_TILES : int = 2
+const TILES_PER_COLUMN: int = 6
+const BORDER_TILES: int = 2
 
-var current_column : int = 2
+var current_column: int = 2
 
 func _ready():
 	move_to_column(current_column)
