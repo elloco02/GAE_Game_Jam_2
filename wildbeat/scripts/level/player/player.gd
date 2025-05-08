@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var board : TileMapLayer = get_parent().get_node("Board")
 
+@export var max_health := 3
+var current_healh := 0
+
 const COLUMNS := 5
 const TILES_PER_COLUMN : int = 6
 const BORDER_TILES : int = 2
@@ -10,6 +13,7 @@ var current_column : int = 2
 
 func _ready():
 	move_to_column(current_column)
+	current_healh = max_health
 
 func _process(delta):
 	if Input.is_action_just_pressed("move_left") and current_column > 0:
@@ -31,3 +35,14 @@ func move_to_column(column_index: int):
 	var pixel_pos = board.map_to_local(tile_pos) + board.position
 
 	global_position = pixel_pos
+
+func player_dies():
+	print("player died.")
+	SceneManager.change_scene_to("res://scenes/menu/main_menu.tscn")
+
+func take_damage(damage : int = 1):
+	print("taking damage: " + str(damage))
+	current_healh -= damage
+	if current_healh <= 0:
+		player_dies()
+	
