@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="1_7h6ip"]
 [ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="2_7h6ip"]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 
 [node name="CharacterBody2DTEST" type="CharacterBody2D" groups=["player"]]

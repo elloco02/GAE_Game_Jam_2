@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://do5p8wqmnca6j"]
+[gd_scene load_steps=11 format=4 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
 [ext_resource type="PackedScene" uid="uid://biefbfjfggjbt" path="res://scenes/level/player.tscn" id="3_k86hv"]
 [ext_resource type="PackedScene" uid="uid://bt6shla866s4b" path="res://scenes/falling_objects/object_spawner.tscn" id="5_k86hv"]
-[ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
+[ext_resource type="Script" path="res://scripts/level/world_border.gd" id="6_is3dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
 texture = ExtResource("2_4k7sf")
