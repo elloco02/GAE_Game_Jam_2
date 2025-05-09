@@ -3,7 +3,7 @@ extends Node2D
 @onready var board : TileMapLayer = get_parent().get_node("Board")
 
 @export var max_health := 3
-var current_healh := 0
+var current_health := 0
 
 const COLUMNS := 5
 const TILES_PER_COLUMN : int = 6
@@ -11,9 +11,11 @@ const BORDER_TILES : int = 2
 
 var current_column : int = 2
 
+signal health_changed
+
 func _ready():
 	move_to_column(current_column)
-	current_healh = max_health
+	current_health = max_health
 
 func _process(delta):
 	if Input.is_action_just_pressed("move_left") and current_column > 0:
@@ -42,7 +44,8 @@ func player_dies():
 
 func take_damage(damage : int = 1):
 	print("taking damage: " + str(damage))
-	current_healh -= damage
-	if current_healh <= 0:
+	current_health -= damage
+	health_changed.emit(current_health)
+	if current_health <= 0:
 		player_dies()
 	

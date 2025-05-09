@@ -3,6 +3,7 @@ extends Node2D
 @onready var board : TileMapLayer = $Board
 @onready var player: Node2D = $Player
 @onready var pause_menu = preload("res://scenes/menu/pause_menu.tscn").instantiate()
+@onready var heartsContainer: HBoxContainer = $UserInterface/HeartsContainer
 
 const TOTAL_TILES := 31
 const BORDER_TILES := 2
@@ -38,3 +39,8 @@ func _ready():
 
 	# Spieler global setzen
 	player.global_position = player_pixel_pos
+	
+	# User Interface
+	heartsContainer.set_max_hearts(player.max_health)
+	heartsContainer.update_hearts(player.current_health)
+	player.health_changed.connect(heartsContainer.update_hearts)
