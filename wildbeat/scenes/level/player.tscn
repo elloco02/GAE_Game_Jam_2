@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7j53cdm6feex"]
+[gd_scene load_steps=4 format=3 uid="uid://biefbfjfggjbt"]
 
 [ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="1_7h6ip"]
-[ext_resource type="Texture2D" uid="uid://bdd3ve0ia75ma" path="res://scenes/level/GrassBlock.webp" id="2_eaoru"]
+[ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="2_7h6ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 
-[node name="Player" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2DTEST" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7h6ip")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_dovo2")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7h6ip")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_eaoru")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_dovo2")

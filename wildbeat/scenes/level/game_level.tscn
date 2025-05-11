@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://60y25u23qmk0"]
+[gd_scene load_steps=10 format=4 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
-[ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="3_8vk10"]
-[ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="3_45x5i"]
+[ext_resource type="PackedScene" uid="uid://biefbfjfggjbt" path="res://scenes/level/player.tscn" id="3_k86hv"]
 [ext_resource type="PackedScene" uid="uid://bt6shla866s4b" path="res://scenes/falling_objects/object_spawner.tscn" id="5_k86hv"]
 [ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
+[ext_resource type="PackedScene" uid="uid://cr4svtv42h0jx" path="res://scenes/user_interface/hearts_container.tscn" id="6_tdwdi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
 texture = ExtResource("2_4k7sf")
@@ -45,8 +45,6 @@ texture = ExtResource("2_4k7sf")
 [sub_resource type="TileSet" id="TileSet_45x5i"]
 sources/0 = SubResource("TileSetAtlasSource_8vk10")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_45x5i"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k86hv"]
 size = Vector2(752, 16)
 
@@ -60,18 +58,7 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAAAAAAPAAEAAAABAAAAAAAPAAEAAAACAAAAAAAPAAEAAAADAAAAAAAPAAEAAAAEAAAAAAAPAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAEAAAAHAAAAAAAPAAEAAAAIAAAAAAAPAAEAAAAJAAAAAAAPAAEAAAAKAAAAAAAPAAEAAAALAAAAAAAPAAEAAAAMAAAAAAAPAAEAAAANAAAAAAAPAAEAAAAOAAAAAAAPAAEAAAAPAAAAAAAPAAEAAAAQAAAAAAAPAAEAAAARAAAAAAAPAAEAAAASAAAAAAAPAAEAAAATAAAAAAAPAAEAAAAUAAAAAAAPAAEAAAAVAAAAAAAPAAEAAAAWAAAAAAAPAAEAAAAXAAAAAAAPAAEAAAAYAAAAAAAPAAEAAAAZAAAAAAAPAAEAAAAaAAAAAAAPAAEAAAAbAAAAAAAPAAEAAAAcAAAAAAAPAAEAAAAdAAAAAAAPAAEAAAAAAAEAAAAPAAEAAAAAAAIAAAAPAAEAAAAAAAMAAAAPAAEAAAAAAAQAAAAPAAEAAAAAAAUAAAAPAAEAAAAAAAYAAAAPAAEAAAAAAAcAAAAPAAEAAAAAAAgAAAAPAAEAAAAAAAkAAAAPAAEAAAAAAAoAAAAPAAEAAAAAAAsAAAAPAAEAAAAAAAwAAAAPAAEAAAAAAA0AAAAPAAEAAAAAAA4AAAAPAAEAAAAAAA8AAAAPAAEAAAAAABAAAAAPAAEAAAAAABEAAAAPAAEAAAAAABIAAAAPAAEAAAAAABMAAAAPAAEAAAAAABQAAAAPAAEAAAAAABUAAAAPAAEAAAAAABYAAAAPAAEAAAAAABcAAAAPAAEAAAAAABgAAAAPAAEAAAAAABkAAAAPAAEAAAAAABoAAAAPAAEAAAAAABsAAAAPAAEAAAAAABwAAAAPAAEAAAAAAB0AAAAPAAEAAAAAAB4AAAAPAAEAAAAAAB8AAAAPAAEAAAABAB8AAAAPAAEAAAACAB8AAAAPAAEAAAADAB8AAAAPAAEAAAAEAB8AAAAPAAEAAAAFAB8AAAAPAAEAAAAGAB8AAAAPAAEAAAAHAB8AAAAPAAEAAAAIAB8AAAAPAAEAAAAJAB8AAAAPAAEAAAAKAB8AAAAPAAEAAAALAB8AAAAPAAEAAAAMAB8AAAAPAAEAAAANAB8AAAAPAAEAAAAOAB8AAAAPAAEAAAAPAB8AAAAPAAEAAAAQAB8AAAAPAAEAAAARAB8AAAAPAAEAAAASAB8AAAAPAAEAAAATAB8AAAAPAAEAAAAUAB8AAAAPAAEAAAAVAB8AAAAPAAEAAAAWAB8AAAAPAAEAAAAXAB8AAAAPAAEAAAAYAB8AAAAPAAEAAAAZAB8AAAAPAAEAAAAaAB8AAAAPAAEAAAAbAB8AAAAPAAEAAAAcAB8AAAAPAAEAAAAdAB8AAAAPAAEAAAAeAB8AAAAPAAEAAAAeAAAAAAAPAAEAAAAeAAEAAAAPAAEAAAAeAAIAAAAPAAEAAAAeAAMAAAAPAAEAAAAeAAQAAAAPAAEAAAAeAAUAAAAPAAEAAAAeAAYAAAAPAAEAAAAeAAcAAAAPAAEAAAAeAAgAAAAPAAEAAAAeAAkAAAAPAAEAAAAeAAoAAAAPAAEAAAAeAAsAAAAPAAEAAAAeAAwAAAAPAAEAAAAeAA0AAAAPAAEAAAAeAA4AAAAPAAEAAAAeAA8AAAAPAAEAAAAeABAAAAAPAAEAAAAeABEAAAAPAAEAAAAeABIAAAAPAAEAAAAeABMAAAAPAAEAAAAeABQAAAAPAAEAAAAeABUAAAAPAAEAAAAeABYAAAAPAAEAAAAeABcAAAAPAAEAAAAeABgAAAAPAAEAAAAeABkAAAAPAAEAAAAeABoAAAAPAAEAAAAeABsAAAAPAAEAAAAeABwAAAAPAAEAAAAeAB0AAAAPAAEAAAAeAB4AAAAPAAEAAAA=")
 tile_set = SubResource("TileSet_45x5i")
 
-[node name="Player" type="Node2D" parent="."]
-script = ExtResource("3_45x5i")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
-visibility_layer = 2
-shape = SubResource("RectangleShape2D_45x5i")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_8vk10")
+[node name="Player" parent="." instance=ExtResource("3_k86hv")]
 
 [node name="ObjectSpawner" parent="." instance=ExtResource("5_k86hv")]
 position = Vector2(168, 118)
@@ -98,3 +85,7 @@ color = Color(3.60981e-07, 0.501618, 0.127517, 1)
 light_mask = 4
 visibility_layer = 0
 shape = SubResource("RectangleShape2D_k86hv")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="HeartsContainer" parent="UserInterface" instance=ExtResource("6_tdwdi")]
