@@ -13,3 +13,7 @@ func _on_body_entered(body):
 		print("dealing damage to player!!")
 		body.take_damage() 
 		queue_free() 
+	if body.is_in_group("player") and self.is_in_group("score_objects"): 
+		ScoreManager.score += 100
+		print("Collected item! Score is now: " + str(ScoreManager.score))
+		queue_free()

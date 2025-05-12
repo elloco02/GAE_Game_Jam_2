@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsud3fn60g20q"]
+
+[ext_resource type="Script" uid="uid://btauixfeyjpis" path="res://scripts/globals/score_manager.gd" id="1_7hc5c"]
+[ext_resource type="Script" uid="uid://dknk86wmv76kb" path="res://scripts/level/score/score.gd" id="2_v2x3f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o26e3"]
+font_size = 40
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_7hc5c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_right = 122.0
+offset_bottom = 58.0
+text = "1"
+label_settings = SubResource("LabelSettings_o26e3")
+script = ExtResource("2_v2x3f")

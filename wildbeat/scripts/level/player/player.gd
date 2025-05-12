@@ -49,4 +49,3 @@ func take_damage(damage : int = 1):
 	health_changed.emit(current_health)
 	if current_health <= 0:
 		player_dies()
-	

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://scripts/globals/scene_manager.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
+ScoreManager="*res://scripts/globals/score_manager.gd"
 
 [display]
 
@@ -28,7 +29,6 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-damaging_objects=""
 player=""
 
 [input]
