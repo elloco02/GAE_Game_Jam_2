@@ -30,6 +30,7 @@ func change_scene_to(scene_path: String) -> void:
 
 	var new_scene = load(scene_path).instantiate()
 	get_tree().get_root().add_child(new_scene)
+	get_tree().current_scene = new_scene
 	current_scene = new_scene
 
 	fade_in()

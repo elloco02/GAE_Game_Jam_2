@@ -41,7 +41,8 @@ func move_to_column(column_index: int):
 
 func player_dies():
 	print("player died.")
-	SceneManager.change_scene_to("res://scenes/menu/main_menu.tscn")
+	await SceneManager.change_scene_to("res://scenes/menu/player_death.tscn")
+	GameManager.display_time()
 
 func take_damage(damage : int = 1):
 	print("taking damage: " + str(damage))
