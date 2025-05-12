@@ -1,3 +1,5 @@
+class_name FallableCoin
+
 extends Fallable
 
 @export var points: int = 1

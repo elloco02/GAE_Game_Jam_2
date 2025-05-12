@@ -16,9 +16,10 @@ func _ready() -> void:
 			packed.pack(child)
 			fallables.append({
 				"scene": packed,
-				"weight": child.spawn_weight
+				"weight": child.spawn_weight,
+				"name": child.name
 			})
-			print("Added spawnable: ", child.name, " with class ", child.get_class())
+			print("Added spawnable: ", child.name, " with weight: ", child.spawn_weight)
 			total_weight += child.spawn_weight
 			child.queue_free()
 
@@ -53,12 +54,11 @@ func spawn() -> void:
 		push_error("Failed to get a random index.")
 		return
 
-	var packed_scene = fallables[random_index]["scene"]
+	var fallable = fallables[random_index]
+	var packed_scene = fallable["scene"]
 	var instance: Fallable = packed_scene.instantiate()
-	instance.global_position = global_position # Set the position of the spawned object to the spawner's position
-	print("Color: ", instance.color)
 	add_child(instance)
-	print("Spawned: ", instance.name, " with class: ", instance.get_class())
+	print("Spawned: ", fallable["name"])
 
 
 func get_random_index() -> int:

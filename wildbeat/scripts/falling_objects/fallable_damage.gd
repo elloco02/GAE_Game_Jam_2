@@ -1,3 +1,5 @@
+class_name FallableDamage
+
 extends Fallable
 
 @export var damage: int = 1
