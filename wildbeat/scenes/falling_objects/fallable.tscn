@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj6uomvb5sifl"]
+[gd_scene load_steps=3 format=3 uid="uid://dw4n826v6vmd3"]
 
 [ext_resource type="Script" uid="uid://17c70mpgjg1d" path="res://scripts/falling_objects/fallable.gd" id="1_34jxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34jxj"]
-size = Vector2(48, 48)
 
 [node name="Fallable" type="Area2D"]
 script = ExtResource("1_34jxj")
-metadata/_custom_type_script = "uid://17c70mpgjg1d"
 
 [node name="FallableCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_34jxj")
+
+[node name="FallableColor" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

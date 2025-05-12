@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3u4kwqa7i8p3"]
+[gd_scene load_steps=3 format=3 uid="uid://dc4qphg775vcl"]
 
-[ext_resource type="PackedScene" uid="uid://dj6uomvb5sifl" path="res://scenes/falling_objects/fallable.tscn" id="1_1ewmp"]
+[ext_resource type="PackedScene" uid="uid://dw4n826v6vmd3" path="res://scenes/falling_objects/fallable.tscn" id="1_1ewmp"]
 [ext_resource type="Script" uid="uid://ct15pbagi3kxb" path="res://scripts/falling_objects/fallable_damage.gd" id="1_2ie4j"]
 
-[node name="FallableDamage" type="Node2D"]
-
-[node name="Fallable" parent="." instance=ExtResource("1_1ewmp")]
+[node name="FallableDamage" instance=ExtResource("1_1ewmp")]
 script = ExtResource("1_2ie4j")
 damage = 1
+spawn_weight = 10.0
+color = Color(1, 0, 0, 1)

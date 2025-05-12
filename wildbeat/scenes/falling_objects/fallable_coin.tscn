@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbb1jm4q7yk45"]
+
+[ext_resource type="PackedScene" uid="uid://dw4n826v6vmd3" path="res://scenes/falling_objects/fallable.tscn" id="1_kvgtr"]
+[ext_resource type="Script" uid="uid://cgbdk13tjuf84" path="res://scripts/falling_objects/fallable_coin.gd" id="2_tujqf"]
+
+[node name="FallableCoin" instance=ExtResource("1_kvgtr")]
+script = ExtResource("2_tujqf")
+points = 1
+spawn_weight = 3.0
+color = Color(1, 1, 0, 1)

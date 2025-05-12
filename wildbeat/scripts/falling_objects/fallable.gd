@@ -7,23 +7,23 @@ extends Area2D
 @export var width: float = 48.0
 @export var height: float = 48.0
 @export var spawn_weight: float = 1.0
+@export var color: Color = Color(1, 1, 1, 1) # Default color is white
 
 @onready var fallable_collision: CollisionShape2D = $FallableCollision
-
-var color_rect: ColorRect = null
+@onready var color_rect: ColorRect = $FallableColor
 
 func _ready():
-	if self.get_children().get(0) is ColorRect:
-		color_rect = self.get_children().get(0)
-	else:
-		push_error("ColorRect not set. Please set the ColorRect node in the inspector.")
-		return
+	_init_objects()
+	self.body_entered.connect(handle_body_entered)
+
+
+func _init_objects():
 	fallable_collision.shape.get_rect().size = Vector2(width, height)
+	fallable_collision.position = Vector2(-width / 2, -height / 2)
 	var shape = fallable_collision.shape
 	var pos = fallable_collision.position
-	color_rect.shape = shape
+	color_rect.size = shape.get_rect().size
 	color_rect.position = pos
-	self.body_entered.connect(handle_body_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_body_entered(body: Node) -> void:
+	print("Body entered: ", body.name)
 	if body is Player:
 		on_player_entered(body)
 	elif body is Fallable:
