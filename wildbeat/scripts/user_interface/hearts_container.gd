@@ -2,8 +2,8 @@ extends HBoxContainer
 
 @onready var HeartGui = preload("res://scenes/user_interface/heart_gui.tscn")
 
-func set_max_hearts(max: int) -> void:
-	for i in range(max):
+func set_max_hearts(max_hearts: int) -> void:
+	for i in range(max_hearts):
 		var heart = HeartGui.instantiate()
 		add_child(heart)
 
