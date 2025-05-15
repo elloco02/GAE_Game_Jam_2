@@ -15,5 +15,6 @@ func display_time():
 	if label:
 		label.text = "Du hast " + str("%0.2f" % time_alive)  + " Sekunden überlebt"
 	print("time alive:" + str(time_alive))
+	ScoreManager.score = 0
 
 	
