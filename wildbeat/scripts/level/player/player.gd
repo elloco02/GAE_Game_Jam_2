@@ -6,9 +6,9 @@ extends Node2D
 @export var max_health := 3
 var current_health := 0
 
-const COLUMNS := 5
-const TILES_PER_COLUMN: int = 6
-const BORDER_TILES: int = 2
+const COLUMNS: float = 5
+const TILES_PER_COLUMN: float = 6
+const BORDER_TILES: float = 2
 
 var current_column: int = 2
 
@@ -18,7 +18,7 @@ func _ready():
 	move_to_column(current_column)
 	current_health = max_health
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("move_left") and current_column > 0:
 		current_column -= 1
 		move_to_column(current_column)
@@ -34,7 +34,7 @@ func move_to_column(column_index: int):
 	var start_x = BORDER_TILES / 2
 	var tile_x = start_x + column_index * TILES_PER_COLUMN + (TILES_PER_COLUMN - 1) / 2.0
 
-	var tile_pos = Vector2(tile_x, target_tile_y)
+	var tile_pos = Vector2(int(tile_x), target_tile_y)
 	var pixel_pos = board.map_to_local(tile_pos) + board.position
 
 	global_position = pixel_pos
@@ -44,10 +44,9 @@ func player_dies():
 	await SceneManager.change_scene_to("res://scenes/menu/player_death.tscn")
 	GameManager.display_time()
 
-func take_damage(damage : int = 1):
+func take_damage(damage: int = 1):
 	print("taking damage: " + str(damage))
 	current_health -= damage
 	health_changed.emit(current_health)
 	if current_health <= 0:
 		player_dies()
-	

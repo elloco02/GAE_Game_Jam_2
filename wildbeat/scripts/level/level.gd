@@ -5,17 +5,15 @@ extends Node2D
 @onready var pause_menu = preload("res://scenes/menu/pause_menu.tscn").instantiate()
 @onready var heartsContainer: HBoxContainer = $UserInterface/HeartsContainer
 
-const TOTAL_TILES := 31
-const BORDER_TILES := 2
-const PLAYABLE_TILES := TOTAL_TILES - BORDER_TILES  # 30
-const COLUMNS := 5
-const TILES_PER_COLUMN := PLAYABLE_TILES / COLUMNS  # 6
-const TILE_SIZE := 16  # in Pixeln
+const TOTAL_TILES : float = 31
+const BORDER_TILES : float = 2
+const PLAYABLE_TILES : float = TOTAL_TILES - BORDER_TILES  # 30
+const COLUMNS : float = 5
+const TILES_PER_COLUMN : float = PLAYABLE_TILES / COLUMNS  # 6
+const TILE_SIZE : float = 16  # in Pixeln
 	
 func _ready():
 	get_node("/root/GameManager").add_child(pause_menu)
-	#val bla = get_tree().path
-	#bla.add_child()
 	var screen_size = get_viewport().get_visible_rect().size
 	var board_pixel_width = TOTAL_TILES * TILE_SIZE
 
