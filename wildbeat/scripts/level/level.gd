@@ -7,9 +7,9 @@ extends Node2D
 
 const TOTAL_TILES : float = 31
 const BORDER_TILES : float = 2
-const PLAYABLE_TILES : float = TOTAL_TILES - BORDER_TILES  # 30
+const PLAYABLE_TILES : float = TOTAL_TILES - BORDER_TILES  # 29
 const COLUMNS : float = 5
-const TILES_PER_COLUMN : float = PLAYABLE_TILES / COLUMNS  # 6
+const TILES_PER_COLUMN : float = 6
 const TILE_SIZE : float = 16  # in Pixeln
 	
 func _ready():
@@ -42,3 +42,21 @@ func _ready():
 	heartsContainer.set_max_hearts(player.max_health)
 	heartsContainer.update_hearts(player.current_health)
 	player.health_changed.connect(heartsContainer.update_hearts)
+	
+	# Create spawner
+	create_spawners()
+
+func create_spawners():
+	for i in range(COLUMNS):
+		var spawnerName = "Spawner" + str(i+1)
+		var spawner = get_node(spawnerName)
+		move_spawner_to_column(spawner, i)
+		
+func move_spawner_to_column(spawner: Spawner, column_index: int):
+	var grid_rect = board.get_used_rect()
+	var start_x = BORDER_TILES / 2
+	var tile_x = start_x + column_index * TILES_PER_COLUMN + (TILES_PER_COLUMN - 1) / 2.0
+
+	var tile_pos = Vector2(int(tile_x), grid_rect.position.y)
+	var pixel_pos = board.map_to_local(tile_pos) + board.position	
+	spawner.position = pixel_pos
