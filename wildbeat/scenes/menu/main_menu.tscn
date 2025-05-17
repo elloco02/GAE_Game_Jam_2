@@ -40,6 +40,12 @@ layout_mode = 2
 text = "Play Game"
 scene_path = "res://scenes/level/game_level.tscn"
 
+[node name="ScoreBoard" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+layout_mode = 2
+text = "Score Board
+"
+scene_path = "res://scenes/menu/scoreboard.tscn"
+
 [node name="Settings" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
 layout_mode = 2
 text = "Settings
