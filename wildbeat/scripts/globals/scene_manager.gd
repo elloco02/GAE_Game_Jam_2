@@ -24,8 +24,10 @@ func change_scene_to(scene_path: String) -> void:
 
 	if current_scene:
 		current_scene.queue_free()
-		if get_node("/root/GameManager").get_child(0) != null:
-			get_node("/root/GameManager").get_child(0).queue_free()
+		if has_node("/root/GameManager"):
+			var gameManager = get_node("/root/GameManager")
+			if gameManager.get_child_count() > 0:
+				gameManager.get_child(0).queue_free()
 
 
 	var new_scene = load(scene_path).instantiate()
