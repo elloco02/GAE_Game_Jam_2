@@ -70,4 +70,4 @@ func heal(amount: int):
 
 # activate a shield that lasts for one damage hit
 func activate_shield():
-	self.shielded = true if not self.shielded else false
+	self.shielded = true
