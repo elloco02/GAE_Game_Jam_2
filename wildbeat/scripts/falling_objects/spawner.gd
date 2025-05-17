@@ -6,6 +6,7 @@ extends Marker2D
 
 # Dictionary of type {"scene": PackedScene, "weight": float}
 var fallables: Array[Dictionary] = []
+var slowed: bool = false # make sure newly spawned fallables are also slowed
 var total_weight: float = 0
 
 func _ready() -> void:
@@ -58,6 +59,8 @@ func spawn() -> void:
 	var packed_scene = fallable["scene"]
 	var instance: Fallable = packed_scene.instantiate()
 	add_child(instance)
+	if self.slowed:
+		instance.fall_step = 0.5
 	print("Spawned: ", fallable["name"])
 
 

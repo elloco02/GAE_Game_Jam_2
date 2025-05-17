@@ -5,6 +5,7 @@ extends Node2D
 
 @export var max_health := 3
 var current_health := 0
+var shielded: bool = false
 
 const COLUMNS: float = 5
 const TILES_PER_COLUMN: float = 6
@@ -45,8 +46,28 @@ func player_dies():
 	GameManager.display_time()
 
 func take_damage(damage: int = 1):
-	print("taking damage: " + str(damage))
-	current_health -= damage
-	health_changed.emit(current_health)
-	if current_health <= 0:
-		player_dies()
+	# deactivate shield if activated
+	if self.shielded:
+		print("shield took ", damage, " damage")
+		print("shield deactivated")
+		self.shielded = false
+	# take damage if no shield activated
+	else:
+		print("taking damage: " + str(damage))
+		current_health -= damage
+		health_changed.emit(current_health)
+		if current_health <= 0:
+			player_dies()
+
+# heal player by amount of not already at max health
+func heal(amount: int):
+	if self.current_health < self.max_health:
+		print("healing: ", str(amount))
+		self.current_health = min(self.current_health + amount, self.max_health)
+		health_changed.emit(self.current_health)
+	else:
+		print("already full health")
+
+# activate a shield that lasts for one damage hit
+func activate_shield():
+	self.shielded = true
