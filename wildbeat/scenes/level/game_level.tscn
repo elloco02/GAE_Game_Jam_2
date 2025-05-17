@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://do5p8wqmnca6j"]
+[gd_scene load_steps=17 format=4 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c7o2osjxi716y" path="res://scenes/falling_objects/fallable_coin.tscn" id="6_46qwn"]
 [ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
 [ext_resource type="PackedScene" uid="uid://cr4svtv42h0jx" path="res://scenes/user_interface/hearts_container.tscn" id="6_tdwdi"]
+[ext_resource type="PackedScene" uid="uid://pkgjdocpu3eu" path="res://scenes/falling_objects/fallable_slow_motion.tscn" id="7_qys2h"]
+[ext_resource type="PackedScene" uid="uid://qofjtjsd0h55" path="res://scenes/falling_objects/fallable_heal.tscn" id="8_imi8r"]
+[ext_resource type="PackedScene" uid="uid://dsvkh26rjumji" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
 [ext_resource type="Script" uid="uid://3innvi4vd4o4" path="res://scripts/level/score.gd" id="9_tw3y1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
@@ -69,11 +72,18 @@ tile_set = SubResource("TileSet_45x5i")
 [node name="Spawner" parent="." instance=ExtResource("4_is3dy")]
 position = Vector2(183, 119)
 
+[node name="FallableCoin" parent="Spawner" instance=ExtResource("6_46qwn")]
+spawn_weight = 3.0
+
 [node name="FallableDamage" parent="Spawner" instance=ExtResource("5_tdwdi")]
 spawn_weight = 10.0
 
-[node name="FallableCoin" parent="Spawner" instance=ExtResource("6_46qwn")]
-spawn_weight = 3.0
+[node name="FallableHeal" parent="Spawner" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner" instance=ExtResource("7_qys2h")]
+spawn_weight = 20.0
+
+[node name="FallableShield" parent="Spawner" instance=ExtResource("9_djx54")]
 
 [node name="WorldBorder" type="Area2D" parent="."]
 position = Vector2(376, 632)

@@ -3,7 +3,7 @@ class_name Fallable
 extends Area2D
 
 @export var fall_speed: float = 100.0
-@export var fall_step: float = 1
+@export var fall_step: float = 1.0
 @export var spawn_weight: float = 1.0
 
 func _ready():
