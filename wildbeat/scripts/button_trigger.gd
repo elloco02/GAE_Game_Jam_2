@@ -9,6 +9,6 @@ func _on_pressed() -> void:
 		var username_input = get_node("../UsernameInput") as LineEdit
 		var username = username_input.text
 		ScoreManager.save_highscore(username)
-		ScoreManager.reset_score()
 	print("pressed button: " + str(self.name))
 	SceneManager.change_scene_to(scene_path)
+	ScoreManager.reset_score()
