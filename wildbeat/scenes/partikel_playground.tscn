@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbkpqifn1d5ru"]
+
+[sub_resource type="Curve" id="Curve_5oqax"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.235955), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_k1gvn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47191), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ku4ke"]
+offsets = PackedFloat32Array(0, 0.37037, 0.660494, 1)
+colors = PackedColorArray(0.776471, 0, 0, 1, 1, 0.498039, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="Curve" id="Curve_ku4ke"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="PartikelPlayground" type="Node2D"]
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_5oqax")
+
+[node name="Fire" type="CPUParticles2D" parent="."]
+amount = 800
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -300)
+radial_accel_min = -50.0
+radial_accel_max = -50.0
+scale_amount_curve = SubResource("Curve_k1gvn")
+color_ramp = SubResource("Gradient_ku4ke")
+
+[node name="Vortex" type="CPUParticles2D" parent="."]
+amount = 15
+lifetime = 0.5
+speed_scale = 0.39
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, -50)
+spread = 0.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = 1.0
+orbit_velocity_max = 5.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ku4ke")
+color = Color(0, 0.568627, 1, 0.454902)

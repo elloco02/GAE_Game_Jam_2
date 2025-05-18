@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c7o2osjxi716y" path="res://scenes/falling_objects/fallable_coin.tscn" id="6_46qwn"]
 [ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
 [ext_resource type="PackedScene" uid="uid://cr4svtv42h0jx" path="res://scenes/user_interface/hearts_container.tscn" id="6_tdwdi"]
-[ext_resource type="PackedScene" path="res://scenes/falling_objects/fallable_slow_motion.tscn" id="7_qys2h"]
-[ext_resource type="PackedScene" path="res://scenes/falling_objects/fallable_heal.tscn" id="8_imi8r"]
-[ext_resource type="PackedScene" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
+[ext_resource type="PackedScene" uid="uid://pkgjdocpu3eu" path="res://scenes/falling_objects/fallable_slow_motion.tscn" id="7_qys2h"]
+[ext_resource type="PackedScene" uid="uid://qofjtjsd0h55" path="res://scenes/falling_objects/fallable_heal.tscn" id="8_imi8r"]
+[ext_resource type="PackedScene" uid="uid://dsvkh26rjumji" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
 [ext_resource type="Script" uid="uid://3innvi4vd4o4" path="res://scripts/level/score.gd" id="9_tw3y1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
@@ -81,7 +81,7 @@ spawn_weight = 10.0
 [node name="FallableHeal" parent="Spawner1" instance=ExtResource("8_imi8r")]
 
 [node name="FallableSlowMotion" parent="Spawner1" instance=ExtResource("7_qys2h")]
-spawn_weight = 20.0
+spawn_weight = 0.0
 
 [node name="FallableShield" parent="Spawner1" instance=ExtResource("9_djx54")]
 
@@ -100,6 +100,7 @@ spawn_weight = 10.0
 spawn_weight = 20.0
 
 [node name="FallableShield" parent="Spawner2" instance=ExtResource("9_djx54")]
+spawn_weight = 10000.0
 
 [node name="Spawner3" parent="." instance=ExtResource("4_is3dy")]
 position = Vector2(366, 238)

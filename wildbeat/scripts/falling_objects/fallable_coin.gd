@@ -7,4 +7,4 @@ extends Fallable
 func on_player_entered(_player: Player) -> void:
 	ScoreManager.add_score(points)
 	print("Gained ", points, " point(s). Current score: ", ScoreManager.score)
-	queue_free() # Default behavior is to remove the object
+	$UniversalCollectParticles.emitting=true

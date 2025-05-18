@@ -8,4 +8,3 @@ extends Fallable
 func on_player_entered(player: Player) -> void:
 	player.heal(self.amount)
 	print("heal collected")
-	queue_free() # Default behavior is to remove the object
