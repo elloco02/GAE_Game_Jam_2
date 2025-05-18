@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4eu41s0rrxh"]
+
+[ext_resource type="Script" uid="uid://bkbog4ynkjufx" path="res://scripts/menu/scoreboard.gd" id="1_2utu0"]
+[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_i7sph"]
+
+[node name="Scoreboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2utu0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_i7sph")]
+layout_mode = 2
+text = "return"
+scene_path = "res://scenes/menu/main_menu.tscn"
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highscores"
+horizontal_alignment = 1
