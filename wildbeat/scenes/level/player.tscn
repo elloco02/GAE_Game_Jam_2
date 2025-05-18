@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://biefbfjfggjbt"]
+[gd_scene load_steps=4 format=3 uid="uid://biefbfjfggjbt"]
 
 [ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="1_7h6ip"]
 [ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="2_7h6ip"]
-[ext_resource type="AudioStream" uid="uid://bqc87ksjf1cv0" path="res://audio/sound_effects/player_move.wav" id="3_eaoru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 
@@ -17,6 +16,3 @@ texture = ExtResource("2_7h6ip")
 light_mask = 3
 visibility_layer = 3
 shape = SubResource("RectangleShape2D_dovo2")
-
-[node name="player_move" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_eaoru")

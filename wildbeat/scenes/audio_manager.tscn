@@ -1,24 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvy0na4cnlwvo"]
+[gd_scene load_steps=15 format=3 uid="uid://bvy0na4cnlwvo"]
 
 [ext_resource type="Script" uid="uid://7wu050kc2d1j" path="res://scenes/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="Script" uid="uid://dfdqakfebv1kp" path="res://scripts/soundeffek_settings.gd" id="2_liach"]
-[ext_resource type="AudioStream" uid="uid://byw38ffjiumlh" path="res://audio/sound_effects/click_button.wav" id="3_3asnw"]
+[ext_resource type="AudioStream" uid="uid://5bhqaagkb0pp" path="res://audio/sound_effects/click_button.wav" id="3_3asnw"]
 [ext_resource type="AudioStream" uid="uid://bevdbeslyu787" path="res://audio/sound_effects/player_damage.wav" id="4_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://bqc87ksjf1cv0" path="res://audio/sound_effects/player_move.wav" id="5_02gw7"]
+[ext_resource type="AudioStream" uid="uid://cnuu1h53u4ok0" path="res://audio/sound_effects/player_dies.wav" id="6_ujhup"]
+[ext_resource type="AudioStream" uid="uid://c0kx6e3sqcq0p" path="res://audio/sound_effects/spawn_item.wav" id="7_064dn"]
+[ext_resource type="AudioStream" uid="uid://dfbutiogl2nx5" path="res://audio/sound_effects/collect_item.wav" id="8_ic5jq"]
 
 [sub_resource type="Resource" id="Resource_3asnw"]
 script = ExtResource("2_liach")
 type = 0
 sound_effect = ExtResource("3_3asnw")
-volume = 20
+volume = -10
 metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 
 [sub_resource type="Resource" id="Resource_aoitu"]
 script = ExtResource("2_liach")
 type = 1
 sound_effect = ExtResource("4_m6ggh")
-volume = 0
+volume = -10
+metadata/_custom_type_script = "uid://dfdqakfebv1kp"
+
+[sub_resource type="Resource" id="Resource_if78k"]
+script = ExtResource("2_liach")
+type = 2
+sound_effect = ExtResource("5_02gw7")
+volume = -10
+metadata/_custom_type_script = "uid://dfdqakfebv1kp"
+
+[sub_resource type="Resource" id="Resource_8igv3"]
+script = ExtResource("2_liach")
+type = 3
+sound_effect = ExtResource("6_ujhup")
+volume = -10
+metadata/_custom_type_script = "uid://dfdqakfebv1kp"
+
+[sub_resource type="Resource" id="Resource_2y2jw"]
+script = ExtResource("2_liach")
+type = 4
+sound_effect = ExtResource("7_064dn")
+volume = -10
+metadata/_custom_type_script = "uid://dfdqakfebv1kp"
+
+[sub_resource type="Resource" id="Resource_2y5yn"]
+script = ExtResource("2_liach")
+type = 5
+sound_effect = ExtResource("8_ic5jq")
+volume = -10
 metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_8qd8g")
-sound_effect_settings = Array[ExtResource("2_liach")]([SubResource("Resource_3asnw"), SubResource("Resource_aoitu")])
+sound_effect_settings = Array[ExtResource("2_liach")]([SubResource("Resource_3asnw"), SubResource("Resource_aoitu"), SubResource("Resource_if78k"), SubResource("Resource_8igv3"), SubResource("Resource_2y2jw"), SubResource("Resource_2y5yn")])
