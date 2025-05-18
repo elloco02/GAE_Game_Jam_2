@@ -20,17 +20,7 @@ func _ready():
 	# Board (TileMapLayer) horizontal zentrieren
 	board.position.x = (screen_size.x - board_pixel_width) / 2
 	board.position.y = screen_size.y / 6
-
-	# Grid-Dimensionen analysieren
-	var grid_rect = board.get_used_rect()
-	var border_y = grid_rect.position.y + grid_rect.size.y - 1  # letzte Zeile
-	var player_y = border_y - 3  # eine Zeile über der Border
-
-	# Mittlere Spalte berechnen
-	var middle_column = COLUMNS / 2
-	var tile_index_in_column = BORDER_TILES / 2 + middle_column * TILES_PER_COLUMN + TILES_PER_COLUMN / 2
-	var player_x = int(tile_index_in_column)
-
+	
 	# Spieler initial setzen
 	player.move_to_column(player.current_column)
 	
