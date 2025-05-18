@@ -8,10 +8,9 @@ enum SOUND_EFFECT_TYPE {
 	PLAYER_DIES,
 	SPAWB_ITEM,
 	COLLECT_ITEM,
-	BACKGROUND_MUSIC
+	BACKGROUND_MUSIC_IN_GAME,
+	BACKGROUND_MUSIC_IN_MENU
 }
-
-
 
 @export var type : SOUND_EFFECT_TYPE
 @export var sound_effect : AudioStream
