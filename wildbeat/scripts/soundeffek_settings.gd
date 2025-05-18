@@ -7,9 +7,13 @@ enum SOUND_EFFECT_TYPE {
 	PLAYER_MOVE,
 	PLAYER_DIES,
 	SPAWB_ITEM,
-	COLLECT_ITEM
+	COLLECT_ITEM,
+	BACKGROUND_MUSIC
 }
+
+
 
 @export var type : SOUND_EFFECT_TYPE
 @export var sound_effect : AudioStream
 @export_range(-50, 50) var volume = 0
+@export var bus : String = "Master"

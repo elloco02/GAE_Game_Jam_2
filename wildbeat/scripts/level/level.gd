@@ -13,6 +13,7 @@ const TILES_PER_COLUMN : float = 6
 const TILE_SIZE : float = 16  # in Pixeln
 	
 func _ready():
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC)
 	get_node("/root/GameManager").add_child(pause_menu)
 	var screen_size = get_viewport().get_visible_rect().size
 	var board_pixel_width = TOTAL_TILES * TILE_SIZE
