@@ -31,12 +31,8 @@ func _ready():
 	var tile_index_in_column = BORDER_TILES / 2 + middle_column * TILES_PER_COLUMN + TILES_PER_COLUMN / 2
 	var player_x = int(tile_index_in_column)
 
-	# TileMapLayer-Koordinaten → Welt-Position
-	var player_tile_pos = Vector2i(player_x, player_y)
-	var player_pixel_pos = board.map_to_local(player_tile_pos) + board.position
-
-	# Spieler global setzen
-	player.global_position = player_pixel_pos
+	# Spieler initial setzen
+	player.move_to_column(player.current_column)
 	
 	# User Interface
 	heartsContainer.set_max_hearts(player.max_health)

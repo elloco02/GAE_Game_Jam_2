@@ -82,7 +82,7 @@ spawn_weight = 10.0
 [node name="FallableHeal" parent="Spawner1" instance=ExtResource("8_imi8r")]
 
 [node name="FallableSlowMotion" parent="Spawner1" instance=ExtResource("7_qys2h")]
-spawn_weight = 20.0
+spawn_weight = 0.0
 
 [node name="FallableShield" parent="Spawner1" instance=ExtResource("9_djx54")]
 
@@ -101,6 +101,7 @@ spawn_weight = 10.0
 spawn_weight = 20.0
 
 [node name="FallableShield" parent="Spawner2" instance=ExtResource("9_djx54")]
+spawn_weight = 10000.0
 
 [node name="Spawner3" parent="." instance=ExtResource("4_is3dy")]
 position = Vector2(366, 238)

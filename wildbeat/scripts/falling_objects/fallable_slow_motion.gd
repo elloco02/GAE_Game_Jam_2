@@ -13,7 +13,6 @@ func on_player_entered(_player: Player) -> void:
 	# keep slow for slow_duration
 	await get_tree().create_timer(self.slow_duration).timeout
 	self.deactivate_slow(spawner)
-	queue_free() # Default behavior is to remove the object
 
 # activate the slow effect for already spawned Fallables in the same column
 # as this object and all newly spawned Fallables in the same column during the

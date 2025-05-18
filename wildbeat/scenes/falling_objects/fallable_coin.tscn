@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7o2osjxi716y"]
+[gd_scene load_steps=5 format=3 uid="uid://c7o2osjxi716y"]
 
 [ext_resource type="Script" uid="uid://cgbdk13tjuf84" path="res://scripts/falling_objects/fallable_coin.gd" id="1_kvgtr"]
+[ext_resource type="PackedScene" uid="uid://dxbx2pvg5k61q" path="res://scenes/falling_objects/particles/universal_collect_particles.tscn" id="2_tujqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvgtr"]
 size = Vector2(48, 48)
+
+[sub_resource type="Gradient" id="Gradient_tujqf"]
+offsets = PackedFloat32Array(0, 0.635802, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0.513726, 1, 1, 0, 0)
 
 [node name="FallableCoin" type="Area2D"]
 script = ExtResource("1_kvgtr")
@@ -18,3 +23,8 @@ offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
 color = Color(1, 0.933333, 0.345098, 1)
+
+[node name="UniversalCollectParticles" parent="." instance=ExtResource("2_tujqf")]
+emitting = false
+one_shot = true
+color_ramp = SubResource("Gradient_tujqf")
