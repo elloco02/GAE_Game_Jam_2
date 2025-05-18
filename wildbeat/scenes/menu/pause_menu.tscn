@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxghw20k4v6qy"]
+[gd_scene load_steps=4 format=3 uid="uid://bxghw20k4v6qy"]
 
 [ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_n54lc"]
 [ext_resource type="Script" uid="uid://d3e17t3vyvniw" path="res://scenes/menu/pause_menu.gd" id="1_ux7g8"]
+[ext_resource type="AudioStream" uid="uid://byw38ffjiumlh" path="res://audio/sound_effects/click_button.wav" id="3_xtxec"]
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
@@ -58,6 +59,10 @@ alignment = 1
 layout_mode = 2
 text = "Resume"
 script = null
+
+[node name="click_button_sound2" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Resume"]
+position = Vector2(-327, -261)
+stream = ExtResource("3_xtxec")
 
 [node name="Main Menu" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_n54lc")]
 layout_mode = 2

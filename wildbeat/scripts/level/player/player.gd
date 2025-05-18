@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var board : TileMapLayer = get_parent().get_node("Board")
+@onready var player_move: AudioStreamPlayer2D = $player_move
 
 @export var max_health := 3
 var current_health := 0
@@ -37,6 +38,7 @@ func move_to_column(column_index: int):
 	var pixel_pos = board.map_to_local(tile_pos) + board.position
 
 	global_position = pixel_pos
+	player_move.play()
 
 func player_dies():
 	print("player died.")

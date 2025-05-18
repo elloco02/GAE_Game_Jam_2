@@ -1,5 +1,7 @@
 extends Control
 
+@onready var click_button_sound: AudioStreamPlayer2D = $MarginContainer/VBoxContainer/Resume/click_button_sound
+
 func _ready():
 	visible = false
 	get_node("MarginContainer/VBoxContainer/Resume").pressed.connect(_on_resume_pressed)
@@ -26,6 +28,7 @@ func hide_pause_menu():
 	visible = false
 
 func _on_resume_pressed():
+	click_button_sound.play()
 	hide_pause_menu()
 	
 func _on_main_menu_pressed():

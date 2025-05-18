@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxcqmd62k3xuh"]
+[gd_scene load_steps=3 format=3 uid="uid://bxcqmd62k3xuh"]
 
 [ext_resource type="Script" uid="uid://c0wrq8qpld55o" path="res://scripts/button_trigger.gd" id="1_htwd1"]
+[ext_resource type="AudioStream" uid="uid://byw38ffjiumlh" path="res://audio/sound_effects/click_button.wav" id="2_ls264"]
 
 [node name="Button" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_htwd1")
+
+[node name="click_button_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ls264")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
