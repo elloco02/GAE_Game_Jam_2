@@ -1,11 +1,9 @@
 extends Button
 
-@onready var click_button_sound: AudioStreamPlayer2D = $click_button_sound
-
 @export var scene_path: String
 
 func _on_pressed() -> void:
-	click_button_sound.play()
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_PRESSED)
 	if self.name == "Quit":
 		get_tree().quit()
 	if self.name == "Submit":

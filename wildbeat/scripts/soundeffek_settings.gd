@@ -1,0 +1,11 @@
+extends Resource
+class_name SoundEffectSettings
+
+enum SOUND_EFFECT_TYPE {
+	UI_BUTTON_PRESSED,
+	PLAYER_DAMAGE
+}
+
+@export var type : SOUND_EFFECT_TYPE
+@export var sound_effect : AudioStream
+@export_range(-50, 50) var volume = 0
