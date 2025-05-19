@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvy0na4cnlwvo"]
+[gd_scene load_steps=23 format=3 uid="uid://bvy0na4cnlwvo"]
 
 [ext_resource type="Script" uid="uid://7wu050kc2d1j" path="res://scripts/sound/audio_manager.gd" id="1_vtr8g"]
 [ext_resource type="Script" uid="uid://dfdqakfebv1kp" path="res://scripts/sound/soundeffect_settings.gd" id="2_hmupl"]
@@ -8,7 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://cnuu1h53u4ok0" path="res://audio/sound_effects/player_dies.wav" id="6_ie24k"]
 [ext_resource type="AudioStream" uid="uid://dd1fptd4m1edp" path="res://audio/sound_effects/spawn_tile.mp3" id="7_kym88"]
 [ext_resource type="AudioStream" uid="uid://bf7ofn6xo3vjg" path="res://audio/sound_effects/coin_sound.mp3" id="8_kym88"]
-[ext_resource type="AudioStream" uid="uid://djgt80xmboepf" path="res://audio/sound_effects/Burn The World Waltz .mp3" id="9_uy4jd"]
+[ext_resource type="AudioStream" uid="uid://djgt80xmboepf" path="res://audio/music/Burn The World Waltz .mp3" id="9_uy4jd"]
+[ext_resource type="AudioStream" uid="uid://uc280kqqtxn5" path="res://audio/music/Without-Orchestra-2020-03-15_-_Western_Adverntures_-_David_Fesliyan.mp3" id="10_3cs75"]
 [ext_resource type="AudioStream" uid="uid://bc18l5f8q0qto" path="res://audio/sound_effects/gaining_shield.mp3" id="10_hmupl"]
 [ext_resource type="AudioStream" uid="uid://dwc32mqsdnda0" path="res://audio/sound_effects/slowmotion.mp3" id="11_kym88"]
 
@@ -71,7 +72,7 @@ metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 [sub_resource type="Resource" id="Resource_vtr8g"]
 script = ExtResource("2_hmupl")
 type = 7
-sound_effect = ExtResource("9_uy4jd")
+sound_effect = ExtResource("10_3cs75")
 volume = -10
 bus = "Music"
 metadata/_custom_type_script = "uid://dfdqakfebv1kp"

@@ -1,7 +1,7 @@
 extends Node
 
 var sound_effect_dict = {}
-var current_music_type : SoundEffectSettings.SOUND_EFFECT_TYPE = SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU
+var current_music_type : SoundEffectSettings.SOUND_EFFECT_TYPE
 
 @export var sound_effect_settings : Array[SoundEffectSettings]
 
@@ -14,8 +14,10 @@ func create_2d_audio_at_location(location, type : SoundEffectSettings.SOUND_EFFE
 	if sound_effect_dict.has(type):
 		
 		if type == SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU:
+			stop_music(SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME)
 			current_music_type = SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU
 		elif type == SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME:
+			stop_music(SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU)
 			current_music_type = SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME
 			
 		var sound_effect_setting : SoundEffectSettings = sound_effect_dict[type]
