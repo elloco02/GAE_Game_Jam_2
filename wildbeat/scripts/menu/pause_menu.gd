@@ -6,6 +6,7 @@ func _ready():
 	get_node("MarginContainer/VBoxContainer/Main Menu").pressed.connect(_on_resume_pressed)
 	set_process(false)
 	set_process_internal(false) 
+	z_index = 100
 
 func _input(event):
 	if event.is_action_pressed("pause_game"):
