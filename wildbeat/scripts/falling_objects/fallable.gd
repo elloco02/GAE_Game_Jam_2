@@ -26,7 +26,7 @@ enum Types {
 }
 
 func _ready():
-	if not fallable_type in Types or fallable_type == Types.NONE:
+	if fallable_type == Types.NONE:
 		assert(false, "Invalid fallable type: " + str(fallable_type))
 
 	self.body_entered.connect(handle_body_entered)

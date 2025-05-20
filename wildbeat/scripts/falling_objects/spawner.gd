@@ -19,7 +19,6 @@ extends Marker2D
 # Dictionary of type {"scene": PackedScene, "weight": float, "name": String, "type": Fallables}
 var fallables: Array[Dictionary] = []
 var slowed: bool = false # make sure newly spawned fallables are also slowed
-var total_weight: float = 0
 
 func _ready() -> void:
 	init_fallables()
@@ -35,6 +34,8 @@ func _ready() -> void:
 	ScoreManager.on_score_change.connect(handle_score_change)
 
 
+# decrease the maximum_spawn_delay by 0.5 second for every coin collected,
+# also decrease or increase the weights of the Fallables for every coin collected
 func handle_score_change(new_score: int) -> void:
 	maximum_spawn_delay = max(maximum_spawn_delay - (new_score / 200.0), 2.0)
 	# adjust weights of fallables
@@ -42,6 +43,7 @@ func handle_score_change(new_score: int) -> void:
 		var type = fallable["type"]
 		if type in adjust_increase:
 			fallable["weight"] += adjust_by
+			print("damaged fallabe spawn weight:", fallable["weight"])
 		elif type in adjust_decrease:
 			fallable["weight"] -= adjust_by
 
@@ -60,7 +62,6 @@ func init_fallables() -> void:
 				"type": child.fallable_type
 			})
 			print("Added spawnable: ", child.name, " with weight: ", child.spawn_weight)
-			total_weight += child.spawn_weight
 			child.queue_free()
 
 
@@ -72,9 +73,6 @@ func init_timer() -> void:
 
 
 func start_timer() -> void:
-	# decrease the maximum_spawn_delay by 0.5 second for every 100 points scored,
-	# also decrease or increase the weights of the Fallables until maximum_spawn_delay
-	# reaches 2.0 seconds
 	var wait_time = randf_range(minimum_spawn_delay, maximum_spawn_delay)
 	spawn_timer.start(wait_time)
 
@@ -106,6 +104,9 @@ func spawn() -> void:
 
 # Basic weighted random number generator
 func get_random_index() -> int:
+	var total_weight = 0.0
+	for fallable in fallables:
+		total_weight += fallable["weight"]
 	var random_value = randf() * total_weight
 	var cumulative_weight = 0.0
 
