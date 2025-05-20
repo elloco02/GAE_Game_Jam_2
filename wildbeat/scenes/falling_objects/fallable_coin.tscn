@@ -12,6 +12,7 @@ colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0.513726, 1, 1, 0, 0)
 
 [node name="FallableCoin" type="Area2D" node_paths=PackedStringArray("collect_particles")]
 script = ExtResource("1_kvgtr")
+fallable_type = 4
 spawn_weight = 10.0
 collect_particles = NodePath("UniversalCollectParticles")
 player_hit_sound = 5

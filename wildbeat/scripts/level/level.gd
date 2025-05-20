@@ -18,11 +18,6 @@ func _ready():
 
 	player.move_player_to(player_start_column) # move player to start position
 
-	# User Interface
-	#heartsContainer.set_max_hearts(player.max_health)
-	#heartsContainer.update_hearts(player.current_health)
-	#player.health_changed.connect(heartsContainer.update_hearts)
-
 
 func init_board() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
@@ -46,5 +41,8 @@ func init_spawners() -> void:
 
 	for column in range(movement_manager.columns):
 		var spawner: Spawner = spawners[column % (spawners.size())]
+		if column > spawners.size() - 1:
+			spawner = spawners[column % (spawners.size())].duplicate()
+
 		var spawner_position = movement_manager.get_column_position(column, true)
 		spawner.position = spawner_position
