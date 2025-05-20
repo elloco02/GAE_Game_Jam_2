@@ -66,7 +66,7 @@ metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 script = ExtResource("2_hmupl")
 type = 6
 sound_effect = ExtResource("9_adr3j")
-volume = -10
+volume = -2
 bus = "Music"
 metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 

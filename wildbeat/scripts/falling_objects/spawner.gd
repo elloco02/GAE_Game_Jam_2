@@ -4,13 +4,24 @@ extends Marker2D
 
 @onready var spawn_timer: Timer = Timer.new()
 
-# Dictionary of type {"scene": PackedScene, "weight": float}
+# Dictionary of type {"scene": PackedScene, "weight": float, "name": String}
 var fallables: Array[Dictionary] = []
 var slowed: bool = false # make sure newly spawned fallables are also slowed
 var total_weight: float = 0
 
 func _ready() -> void:
-	# Initialize the fallables array with all Fallable childs
+	init_fallables()
+
+	if fallables.size() == 0:
+		push_error("No fallables found in the scene.")
+		return
+	else:
+		print("Spawnables initialized: ", fallables.size())
+
+	init_timer()
+
+
+func init_fallables() -> void:
 	for child in get_children():
 		if child is Fallable:
 			var packed = PackedScene.new()
@@ -24,25 +35,22 @@ func _ready() -> void:
 			total_weight += child.spawn_weight
 			child.queue_free()
 
-	if fallables.size() == 0:
-		push_error("No fallables found in the scene.")
-	else:
-		print("Spawnables initialized: ", fallables.size())
 
+func init_timer() -> void:
 	spawn_timer.one_shot = true # Timer must expire before it can be restarted
-	spawn_timer.timeout.connect(_handle_timer_timeout)
+	spawn_timer.timeout.connect(handle_timer_timeout)
 	add_child(spawn_timer)
-	_start_timer()
+	start_timer()
 
 
-func _start_timer() -> void:
+func start_timer() -> void:
 	var wait_time = randf_range(2.0, 5.0)
 	spawn_timer.start(wait_time)
 
 
-func _handle_timer_timeout() -> void:
+func handle_timer_timeout() -> void:
 	spawn()
-	_start_timer()
+	start_timer()
 
 
 func spawn() -> void:
@@ -57,14 +65,15 @@ func spawn() -> void:
 		return
 
 	var fallable = fallables[random_index]
-	var packed_scene = fallable["scene"]
-	var instance: Fallable = packed_scene.instantiate()
+	var instance: Fallable = fallable["scene"].instantiate()
 	add_child(instance)
+	# FIXME:
 	if self.slowed:
 		instance.fall_step = 0.5
 	print("Spawned: ", fallable["name"])
 
 
+# Basic weighted random number generator
 func get_random_index() -> int:
 	var random_value = randf() * total_weight
 	var cumulative_weight = 0.0

@@ -1,0 +1,3 @@
+class_name ShieldParticle
+
+extends CPUParticles2D

@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://0h6n2bqnnac1"]
+[gd_scene load_steps=7 format=3 uid="uid://0h6n2bqnnac1"]
 
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_yekh7"]
+[ext_resource type="Script" uid="uid://btfm72y05u284" path="res://scripts/menu/buttons/submit_button.gd" id="1_f6od2"]
+[ext_resource type="Script" uid="uid://c8e07fn3bgd32" path="res://scripts/menu/player_death.gd" id="1_gmes8"]
+[ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="2_o460v"]
+[ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="3_o460v"]
+[ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="4_o460v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yekh7"]
 bg_color = Color(0.355314, 0.355314, 0.355313, 1)
@@ -22,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gmes8")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -87,24 +92,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yekh7")
 placeholder_text = "Name"
 alignment = 1
 
-[node name="Submit" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_yekh7")]
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Submit"
-scene_path = "res://scenes/menu/main_menu.tscn"
+script = ExtResource("1_f6od2")
+scene = ExtResource("2_o460v")
+reset_score = true
+metadata/_custom_type_script = "uid://dnnboivsxqcra"
 
 [node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Menu" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_yekh7")]
+[node name="MainMenuButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_o460v")]
 layout_mode = 2
-text = "Menu"
-scene_path = "res://scenes/menu/main_menu.tscn"
 
 [node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Quit" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_yekh7")]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_o460v")]
 layout_mode = 2
-text = "Quit Game"

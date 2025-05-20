@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://do5p8wqmnca6j"]
+[gd_scene load_steps=18 format=4 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
-[ext_resource type="PackedScene" uid="uid://biefbfjfggjbt" path="res://scenes/level/player.tscn" id="3_k86hv"]
+[ext_resource type="PackedScene" uid="uid://bunpa0d1qed5" path="res://scenes/level/movement_manager.tscn" id="3_djx54"]
+[ext_resource type="PackedScene" uid="uid://c7j53cdm6feex" path="res://scenes/level/player.tscn" id="3_k86hv"]
 [ext_resource type="PackedScene" uid="uid://iiu6jor6y31s" path="res://scenes/falling_objects/spawner.tscn" id="4_is3dy"]
 [ext_resource type="PackedScene" uid="uid://d1ts4g5tvycvd" path="res://scenes/falling_objects/fallable_damage.tscn" id="5_tdwdi"]
 [ext_resource type="PackedScene" uid="uid://c7o2osjxi716y" path="res://scenes/falling_objects/fallable_coin.tscn" id="6_46qwn"]
@@ -57,17 +58,20 @@ size = Vector2(752, 16)
 [sub_resource type="LabelSettings" id="LabelSettings_tw3y1"]
 font_size = 20
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("movement_manager")]
 script = ExtResource("1_7comb")
-
-[node name="ItemSpawnRow" type="Node2D" parent="."]
+movement_manager = NodePath("MovementManager")
 
 [node name="Board" type="TileMapLayer" parent="."]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAAAAAAPAAEAAAABAAAAAAAPAAEAAAACAAAAAAAPAAEAAAADAAAAAAAPAAEAAAAEAAAAAAAPAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAEAAAAHAAAAAAAPAAEAAAAIAAAAAAAPAAEAAAAJAAAAAAAPAAEAAAAKAAAAAAAPAAEAAAALAAAAAAAPAAEAAAAMAAAAAAAPAAEAAAANAAAAAAAPAAEAAAAOAAAAAAAPAAEAAAAPAAAAAAAPAAEAAAAQAAAAAAAPAAEAAAARAAAAAAAPAAEAAAASAAAAAAAPAAEAAAATAAAAAAAPAAEAAAAUAAAAAAAPAAEAAAAVAAAAAAAPAAEAAAAWAAAAAAAPAAEAAAAXAAAAAAAPAAEAAAAYAAAAAAAPAAEAAAAZAAAAAAAPAAEAAAAaAAAAAAAPAAEAAAAbAAAAAAAPAAEAAAAcAAAAAAAPAAEAAAAdAAAAAAAPAAEAAAAAAAEAAAAPAAEAAAAAAAIAAAAPAAEAAAAAAAMAAAAPAAEAAAAAAAQAAAAPAAEAAAAAAAUAAAAPAAEAAAAAAAYAAAAPAAEAAAAAAAcAAAAPAAEAAAAAAAgAAAAPAAEAAAAAAAkAAAAPAAEAAAAAAAoAAAAPAAEAAAAAAAsAAAAPAAEAAAAAAAwAAAAPAAEAAAAAAA0AAAAPAAEAAAAAAA4AAAAPAAEAAAAAAA8AAAAPAAEAAAAAABAAAAAPAAEAAAAAABEAAAAPAAEAAAAAABIAAAAPAAEAAAAAABMAAAAPAAEAAAAAABQAAAAPAAEAAAAAABUAAAAPAAEAAAAAABYAAAAPAAEAAAAAABcAAAAPAAEAAAAAABgAAAAPAAEAAAAAABkAAAAPAAEAAAAAABoAAAAPAAEAAAAAABsAAAAPAAEAAAAAABwAAAAPAAEAAAAAAB0AAAAPAAEAAAAAAB4AAAAPAAEAAAAAAB8AAAAPAAEAAAABAB8AAAAPAAEAAAACAB8AAAAPAAEAAAADAB8AAAAPAAEAAAAEAB8AAAAPAAEAAAAFAB8AAAAPAAEAAAAGAB8AAAAPAAEAAAAHAB8AAAAPAAEAAAAIAB8AAAAPAAEAAAAJAB8AAAAPAAEAAAAKAB8AAAAPAAEAAAALAB8AAAAPAAEAAAAMAB8AAAAPAAEAAAANAB8AAAAPAAEAAAAOAB8AAAAPAAEAAAAPAB8AAAAPAAEAAAAQAB8AAAAPAAEAAAARAB8AAAAPAAEAAAASAB8AAAAPAAEAAAATAB8AAAAPAAEAAAAUAB8AAAAPAAEAAAAVAB8AAAAPAAEAAAAWAB8AAAAPAAEAAAAXAB8AAAAPAAEAAAAYAB8AAAAPAAEAAAAZAB8AAAAPAAEAAAAaAB8AAAAPAAEAAAAbAB8AAAAPAAEAAAAcAB8AAAAPAAEAAAAdAB8AAAAPAAEAAAAeAB8AAAAPAAEAAAAeAAAAAAAPAAEAAAAeAAEAAAAPAAEAAAAeAAIAAAAPAAEAAAAeAAMAAAAPAAEAAAAeAAQAAAAPAAEAAAAeAAUAAAAPAAEAAAAeAAYAAAAPAAEAAAAeAAcAAAAPAAEAAAAeAAgAAAAPAAEAAAAeAAkAAAAPAAEAAAAeAAoAAAAPAAEAAAAeAAsAAAAPAAEAAAAeAAwAAAAPAAEAAAAeAA0AAAAPAAEAAAAeAA4AAAAPAAEAAAAeAA8AAAAPAAEAAAAeABAAAAAPAAEAAAAeABEAAAAPAAEAAAAeABIAAAAPAAEAAAAeABMAAAAPAAEAAAAeABQAAAAPAAEAAAAeABUAAAAPAAEAAAAeABYAAAAPAAEAAAAeABcAAAAPAAEAAAAeABgAAAAPAAEAAAAeABkAAAAPAAEAAAAeABoAAAAPAAEAAAAeABsAAAAPAAEAAAAeABwAAAAPAAEAAAAeAB0AAAAPAAEAAAAeAB4AAAAPAAEAAAA=")
 tile_set = SubResource("TileSet_45x5i")
 
-[node name="Player" parent="." instance=ExtResource("3_k86hv")]
+[node name="MovementManager" parent="." node_paths=PackedStringArray("board") instance=ExtResource("3_djx54")]
+board = NodePath("../Board")
+
+[node name="Player" parent="." node_paths=PackedStringArray("movement_manager") instance=ExtResource("3_k86hv")]
+movement_manager = NodePath("../MovementManager")
 
 [node name="Spawner1" parent="." instance=ExtResource("4_is3dy")]
 position = Vector2(183, 119)
@@ -175,7 +179,8 @@ shape = SubResource("RectangleShape2D_k86hv")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
-[node name="HeartsContainer" parent="UserInterface" instance=ExtResource("6_tdwdi")]
+[node name="HeartsContainer" parent="UserInterface" node_paths=PackedStringArray("player") instance=ExtResource("6_tdwdi")]
+player = NodePath("../../Player")
 
 [node name="Label" type="Label" parent="UserInterface"]
 offset_left = 7.0

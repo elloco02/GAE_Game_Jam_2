@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg4eu41s0rrxh"]
 
 [ext_resource type="Script" uid="uid://bkbog4ynkjufx" path="res://scripts/menu/scoreboard.gd" id="1_2utu0"]
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_i7sph"]
+[ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="2_2utu0"]
 
 [node name="Scoreboard" type="Control"]
 layout_mode = 3
@@ -26,10 +26,9 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_i7sph")]
+[node name="ReturnButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_2utu0")]
 layout_mode = 2
-text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+text = "Return"
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

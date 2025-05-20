@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkg8w0c81g0cf"]
 
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_osheh"]
+[ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="2_37860"]
 [ext_resource type="Script" uid="uid://dm74hp5yvjlw" path="res://scripts/menu/volume_slider.gd" id="2_dxr1k"]
 
 [node name="Options" type="Control"]
@@ -28,7 +28,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master"
 
@@ -40,7 +40,7 @@ step = 0.001
 script = ExtResource("2_dxr1k")
 bus_name = "Master"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
 
@@ -52,7 +52,7 @@ step = 0.001
 script = ExtResource("2_dxr1k")
 bus_name = "Music"
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sfx"
 
@@ -68,7 +68,6 @@ bus_name = "Sfx"
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="MainMenu" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_osheh")]
+[node name="ReturnButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_37860")]
 layout_mode = 2
-text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+text = "Return"

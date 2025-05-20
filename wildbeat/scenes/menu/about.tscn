@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b6fj6gkawn4y2"]
 
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_6krlh"]
+[ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="1_4baay"]
 
 [node name="About" type="Control"]
 layout_mode = 3
@@ -8,7 +8,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MainMenu" parent="." instance=ExtResource("1_6krlh")]
+[node name="MainMenuButton" parent="." instance=ExtResource("1_4baay")]
 layout_mode = 0
-text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+text = "Return"
