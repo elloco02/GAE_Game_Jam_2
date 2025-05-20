@@ -54,6 +54,7 @@ func handle_timer_timeout() -> void:
 
 
 func spawn() -> void:
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.SPAWB_ITEM)
 	if fallables.size() == 0:
 		push_error("No fallables available to spawn.")
 		return

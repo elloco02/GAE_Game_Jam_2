@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxcqmd62k3xuh"]
 
-[ext_resource type="Script" uid="uid://c0wrq8qpld55o" path="res://scripts/button_trigger.gd" id="1_htwd1"]
+[ext_resource type="Script" uid="uid://c0wrq8qpld55o" path="res://scripts/user_interface/button_trigger.gd" id="1_htwd1"]
 
 [node name="Button" type="Button"]
 offset_right = 8.0
