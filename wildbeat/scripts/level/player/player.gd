@@ -41,11 +41,14 @@ func move_to_column(column_index: int):
 	var pixel_pos = board.map_to_local(tile_pos) + board.position
 
 	global_position = pixel_pos
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_MOVE)
 
 func player_dies():
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_DIES)
 	print("player died.")
 	await SceneManager.change_scene_to("res://scenes/menu/player_death.tscn")
 	GameManager.display_time()
+
 
 func take_damage(damage: int = 1):
 	# deactivate shield if activated
@@ -56,6 +59,7 @@ func take_damage(damage: int = 1):
 	# take damage if no shield activated
 	else:
 		print("taking damage: " + str(damage))
+		AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_DAMAGE)
 		current_health -= damage
 		health_changed.emit(current_health)
 		if current_health <= 0:
