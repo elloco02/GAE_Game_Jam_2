@@ -18,11 +18,6 @@ func _ready():
 
 	player.move_player_to(player_start_column) # move player to start position
 
-	# User Interface
-	#heartsContainer.set_max_hearts(player.max_health)
-	#heartsContainer.update_hearts(player.current_health)
-	#player.health_changed.connect(heartsContainer.update_hearts)
-
 
 func init_board() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
@@ -35,16 +30,18 @@ func init_board() -> void:
 
 
 func init_spawners() -> void:
-	var spawners: Array[Spawner] = []
+	var spawners: Array[PackedScene] = []
 	for child in get_children():
 		if child is Spawner:
-			spawners.append(child)
+			var packed = PackedScene.new()
+			packed.pack(child)
+			spawners.append(packed)
 			print("found spawner: ", child.name)
 
 	if spawners.size() == 0:
 		assert(false, "No spawners found in level.")
 
 	for column in range(movement_manager.columns):
-		var spawner: Spawner = spawners[column % (spawners.size())]
+		var spawner: Spawner = spawners[column % (spawners.size())].instantiate()
 		var spawner_position = movement_manager.get_column_position(column, true)
 		spawner.position = spawner_position
