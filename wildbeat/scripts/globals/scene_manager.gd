@@ -43,11 +43,9 @@ func change_scene_to(scene: PackedScene, to_game: bool = false) -> void:
 
 	if to_game:
 		if current_music_type != SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME:
-			AudioManager.stop_music(current_music_type)
 			AudioManager.create_2d_audio_at_location(Vector2(0, 0), SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME)
 	else:
 		if current_music_type != SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU:
-			AudioManager.stop_music(current_music_type)
 			AudioManager.create_2d_audio_at_location(Vector2(0, 0), SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU)
 
 	var new_scene = scene.instantiate()

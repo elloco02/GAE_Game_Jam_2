@@ -1,7 +1,7 @@
 extends Node
 
 var sound_effect_dict = {}
-var current_music_type: SoundEffectSettings.SOUND_EFFECT_TYPE
+var current_music_type: SoundEffectSettings.SOUND_EFFECT_TYPE = SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU
 
 @export var sound_effect_settings: Array[SoundEffectSettings]
 
@@ -42,6 +42,7 @@ func stop_music(type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 	for child: AudioStreamPlayer2D in get_children():
 		if child.name == str(type):
 			child.stop()
+			child.queue_free()
 
 
 func get_current_music_type():
