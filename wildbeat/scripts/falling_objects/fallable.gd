@@ -2,9 +2,16 @@ class_name Fallable
 
 extends Area2D
 
+@export_subgroup("Fallable Settings")
 @export var fall_speed: float = 100.0
 @export var fall_step: float = 1.0
 @export var spawn_weight: float = 1.0
+
+@export_subgroup("Fallable Particles")
+@export var collect_particles: CPUParticles2D
+
+@export_subgroup("Fallable Sound Effects")
+@export var player_hit_sound: SoundEffectSettings.SOUND_EFFECT_TYPE = SoundEffectSettings.SOUND_EFFECT_TYPE.NONE
 
 func _ready():
 	self.body_entered.connect(handle_body_entered)
@@ -16,6 +23,8 @@ func _physics_process(delta: float) -> void:
 
 func handle_body_entered(body: Node) -> void:
 	if body is Player:
+		play_player_hit_sound()
+		play_particles(body)
 		on_player_entered(body)
 	elif body is Fallable:
 		on_fallable_entered(body)
@@ -30,6 +39,15 @@ func on_player_entered(_player: Player) -> void:
 # Should be implemented by the inheriting classes
 func on_fallable_entered(_fallable: Fallable) -> void:
 	pass
+
+
+func play_particles(_player: Player) -> void:
+	if collect_particles:
+		collect_particles.emitting = true
+
+
+func play_player_hit_sound() -> void:
+	AudioManager.create_2d_audio_at_location(global_position, player_hit_sound)
 
 
 func fall_down(time: float) -> void:
