@@ -2,6 +2,9 @@ class_name Spawner
 
 extends Marker2D
 
+@export var minimum_spawn_delay: float = 1.0
+@export var maximum_spawn_delay: float = 10.0
+
 @onready var spawn_timer: Timer = Timer.new()
 
 # Dictionary of type {"scene": PackedScene, "weight": float, "name": String}
@@ -44,7 +47,12 @@ func init_timer() -> void:
 
 
 func start_timer() -> void:
-	var wait_time = randf_range(2.0, 5.0)
+	# decrease the maximum spawn delay by 0.1 second for every 100 points scored
+	# until 2.0 seconds is reached
+	if maximum_spawn_delay > (minimum_spawn_delay + 1.0):
+		maximum_spawn_delay = 10.0 - (float(ScoreManager.score) / 1000.0)
+	print("maximum spawn delay:", maximum_spawn_delay)
+	var wait_time = randf_range(minimum_spawn_delay, maximum_spawn_delay)
 	spawn_timer.start(wait_time)
 
 
