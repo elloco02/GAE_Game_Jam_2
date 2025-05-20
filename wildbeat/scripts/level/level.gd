@@ -20,23 +20,9 @@ func _ready():
 	# Board (TileMapLayer) horizontal zentrieren
 	board.position.x = (screen_size.x - board_pixel_width) / 2
 	board.position.y = screen_size.y / 6
-
-	# Grid-Dimensionen analysieren
-	var grid_rect = board.get_used_rect()
-	var border_y = grid_rect.position.y + grid_rect.size.y - 1  # letzte Zeile
-	var player_y = border_y - 3  # eine Zeile über der Border
-
-	# Mittlere Spalte berechnen
-	var middle_column = COLUMNS / 2
-	var tile_index_in_column = BORDER_TILES / 2 + middle_column * TILES_PER_COLUMN + TILES_PER_COLUMN / 2
-	var player_x = int(tile_index_in_column)
-
-	# TileMapLayer-Koordinaten → Welt-Position
-	var player_tile_pos = Vector2i(player_x, player_y)
-	var player_pixel_pos = board.map_to_local(player_tile_pos) + board.position
-
-	# Spieler global setzen
-	player.global_position = player_pixel_pos
+	
+	# Spieler initial setzen
+	player.move_to_column(player.current_column)
 	
 	# User Interface
 	heartsContainer.set_max_hearts(player.max_health)

@@ -5,7 +5,10 @@ extends Node2D
 
 @export var max_health := 3
 var current_health := 0
-var shielded: bool = false
+var shielded: bool:
+	set(val):
+		shielded = val
+		$ShieldParticle.emitting = val
 
 const COLUMNS: float = 5
 const TILES_PER_COLUMN: float = 6
@@ -16,7 +19,6 @@ var current_column: int = 2
 signal health_changed
 
 func _ready():
-	move_to_column(current_column)
 	current_health = max_health
 
 func _process(_delta):
@@ -32,7 +34,7 @@ func move_to_column(column_index: int):
 	var border_y = grid_rect.position.y + grid_rect.size.y - 1
 	var target_tile_y = border_y - 3
 
-	var start_x = BORDER_TILES / 2
+	var start_x = BORDER_TILES / 2 
 	var tile_x = start_x + column_index * TILES_PER_COLUMN + (TILES_PER_COLUMN - 1) / 2.0
 
 	var tile_pos = Vector2(int(tile_x), target_tile_y)
@@ -68,6 +70,7 @@ func heal(amount: int):
 	if self.current_health < self.max_health:
 		print("healing: ", str(amount))
 		self.current_health = min(self.current_health + amount, self.max_health)
+		$HealCollectParticle.emitting = true
 		health_changed.emit(self.current_health)
 	else:
 		print("already full health")

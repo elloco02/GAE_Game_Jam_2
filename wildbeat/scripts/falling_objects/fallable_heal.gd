@@ -9,4 +9,3 @@ func on_player_entered(player: Player) -> void:
 	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_HEAL)
 	player.heal(self.amount)
 	print("heal collected")
-	queue_free() # Default behavior is to remove the object
