@@ -2,28 +2,50 @@ class_name MovementManager
 
 extends Node2D
 
-@onready var board: TileMapLayer = get_parent().get_node("Board")
+@export var board: TileMapLayer
+@export var columns: int = 5
+@export var border_tiles_x: int = 2
+@export var border_tiles_y: int = 2
+@export var player_offset_y: int = 3
 
-const COLUMNS: float = 5
-const TILES_PER_COLUMN: float = 6
-const BORDER_TILES: float = 2
+var tile_size: Vector2i # in pixels
+var board_rect: Rect2i # in tiles
+var tiles_per_column_x: float
 
-# Returns the new column position
-func move_to_column(_column: int, _top: bool = false) -> int:
-	return false
+func _ready() -> void:
+	if not board:
+		assert(false, "MovementManager is missing a board.")
+	tile_size = board.tile_set.tile_size
+	board_rect = board.get_used_rect()
+	# dont remove border_tiles_x / 2.0, for some reason it is needed for proper positioning
+	tiles_per_column_x = (board_rect.size.x - border_tiles_x / 2.0) / float(columns)
 
 
-var current_column: int = 2
+# Returns the global position of the tile in the grid or (-1, -1) if the column is out of bounds.
+func get_column_position(column: int, top: bool = false) -> Vector2:
+	if column < 0:
+		return Vector2(-1, -1)
+	elif column > columns - 1:
+		return Vector2(-1, -1)
 
-func move_to_columnasdf(column_index: int):
-	var grid_rect = board.get_used_rect()
-	var border_y = grid_rect.position.y + grid_rect.size.y - 1
-	var target_tile_y = border_y - 3
+	var y = get_y_coordinate(top)
+	var x = get_x_coordinate(column)
 
-	var start_x = BORDER_TILES / 2
-	var tile_x = start_x + column_index * TILES_PER_COLUMN + (TILES_PER_COLUMN - 1) / 2.0
+	var new_position = board.map_to_local(Vector2(x, y)) + board.position
 
-	var tile_pos = Vector2(int(tile_x), target_tile_y)
-	var pixel_pos = board.map_to_local(tile_pos) + board.position
+	return new_position
 
-	global_position = pixel_pos
+
+func get_y_coordinate(top: bool) -> int:
+	if top:
+		return board_rect.position.y
+
+	var y_correction = player_offset_y + border_tiles_y / 2.0
+	return board_rect.position.y + board_rect.size.y - y_correction
+
+
+func get_x_coordinate(column: int) -> int:
+	var start_x = border_tiles_x / 2.0
+	var position_x = start_x + column * tiles_per_column_x + (tiles_per_column_x - 1) / 2.0
+
+	return int(position_x)

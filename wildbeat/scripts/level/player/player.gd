@@ -33,13 +33,22 @@ func _process(_delta):
 
 
 func adjust_player(adjustment: int) -> void:
-	current_column = movement_manager.move_to_column(current_column + adjustment)
+	var new_position = movement_manager.get_column_position(current_column + adjustment)
+	if new_position == Vector2(-1, -1):
+		return
+	current_column += adjustment
+	self.global_position = new_position
 	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_MOVE)
 
 
-# For game initialization
+# For game initialization, should only be called once
 func move_player_to(column: int) -> void:
-	current_column = movement_manager.move_to_column(column)
+	var new_position = movement_manager.get_column_position(column)
+	if new_position == Vector2(-1, -1):
+		# Assert is fine here since this function is only meant to be called during initialization
+		assert(false, "Player is out of bounds.")
+		return
+	self.global_position = new_position
 
 
 func player_dies():

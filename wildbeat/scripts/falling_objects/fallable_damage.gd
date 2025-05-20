@@ -6,7 +6,7 @@ extends Fallable
 
 # Player receives damage
 func on_player_entered(player: Player) -> void:
-	player.take_damage(damage)
+	player.health.damage(damage)
 	print("dealing ", damage, " damage to player")
 
 
