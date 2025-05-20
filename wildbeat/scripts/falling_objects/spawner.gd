@@ -47,11 +47,19 @@ func init_timer() -> void:
 
 
 func start_timer() -> void:
-	# decrease the maximum spawn delay by 0.1 second for every 100 points scored
-	# until 2.0 seconds is reached
+	# decrease the maximum_spawn_delay by 0.5 second for every 100 points scored,
+	# also decrease or increase the weights of the Fallables until maximum_spawn_delay 
+	# reaches 2.0 seconds
 	if maximum_spawn_delay > (minimum_spawn_delay + 1.0):
-		maximum_spawn_delay = 10.0 - (float(ScoreManager.score) / 1000.0)
+		var upper_spawn_delay = maximum_spawn_delay - (float(ScoreManager.score) / 200.0)
+		maximum_spawn_delay = upper_spawn_delay
+		var children = self.get_children()
+		for fallable in fallables:
+			match fallable.name:
+				"FallableDamage":
+					fallable["weight"] += 0.5
 	print("maximum spawn delay:", maximum_spawn_delay)
+	print("damage spawn weight:", fallables[1]["weight"])
 	var wait_time = randf_range(minimum_spawn_delay, maximum_spawn_delay)
 	spawn_timer.start(wait_time)
 
