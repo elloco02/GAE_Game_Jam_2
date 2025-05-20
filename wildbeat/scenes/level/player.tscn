@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7j53cdm6feex"]
+[gd_scene load_steps=10 format=3 uid="uid://c7j53cdm6feex"]
 
 [ext_resource type="Script" uid="uid://c6sx6613w175b" path="res://scripts/level/player/player.gd" id="1_7h6ip"]
 [ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="2_7h6ip"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dm4te36ri0l3c" path="res://scenes/falling_objects/particles/shield_particles.tscn" id="4_o0o36"]
 [ext_resource type="PackedScene" uid="uid://dxbx2pvg5k61q" path="res://scenes/falling_objects/particles/universal_collect_particles.tscn" id="5_o0o36"]
 [ext_resource type="Gradient" uid="uid://w1so8ysmpn2p" path="res://scenes/falling_objects/particles/shield_gradient.res" id="6_tj1sg"]
+[ext_resource type="Script" uid="uid://h74t8wctki1d" path="res://scripts/level/player/health.gd" id="7_2l1sl"]
+[ext_resource type="Script" uid="uid://o3htjnamu2hk" path="res://scripts/level/player/shield.gd" id="8_pnmcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 
@@ -30,3 +32,9 @@ emitting = false
 emitting = false
 one_shot = true
 color_ramp = ExtResource("6_tj1sg")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("7_2l1sl")
+
+[node name="Shield" type="Node2D" parent="."]
+script = ExtResource("8_pnmcy")

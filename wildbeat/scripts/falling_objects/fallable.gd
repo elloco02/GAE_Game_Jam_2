@@ -27,6 +27,7 @@ func on_player_entered(_player: Player) -> void:
 	pass
 
 
+# Should be implemented by the inheriting classes
 func on_fallable_entered(_fallable: Fallable) -> void:
 	pass
 
@@ -35,6 +36,7 @@ func fall_down(time: float) -> void:
 	self.position.y = self.position.y + fall_speed * time * fall_step
 
 
+# Not doing queue_free() immediately to allow for the animation to play
 func remove_fallable() -> void:
 	var childs = get_children()
 	for child in childs:
