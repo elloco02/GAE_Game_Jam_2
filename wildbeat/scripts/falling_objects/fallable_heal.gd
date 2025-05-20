@@ -6,5 +6,5 @@ extends Fallable
 
 # Player receives healing
 func on_player_entered(player: Player) -> void:
-	player.heal(self.amount)
+	player.health.heal(amount)
 	print("heal collected")

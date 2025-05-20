@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkg8w0c81g0cf"]
 
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_osheh"]
+[ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="2_37860"]
 [ext_resource type="Script" uid="uid://dm74hp5yvjlw" path="res://scripts/menu/volume_slider.gd" id="2_dxr1k"]
 
 [node name="Options" type="Control"]
@@ -68,7 +68,6 @@ bus_name = "Sfx"
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="MainMenu" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_osheh")]
+[node name="ReturnButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_37860")]
 layout_mode = 2
-text = "return"
-script = null
+text = "Return"

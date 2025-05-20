@@ -1,9 +1,9 @@
 extends Area2D
 
 func _ready():
-	self.body_entered.connect(handle_body_entered)
+	self.area_entered.connect(handle_body_entered)
 
 
-func handle_body_entered(body: Node) -> void:
+func handle_body_entered(body: Area2D) -> void:
 	if body is Fallable:
 		body.queue_free()
