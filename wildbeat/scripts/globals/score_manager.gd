@@ -2,8 +2,14 @@ extends Node
 
 const HIGHSCORE_FILE = "user://highscores.json"
 
-var score = 0
+var score: int:
+	set(value):
+		score = value
+		on_score_change.emit(value)
+
 var highscores = []
+
+signal on_score_change(new_score: int)
 
 func add_score(points: int) -> void:
 	score += points

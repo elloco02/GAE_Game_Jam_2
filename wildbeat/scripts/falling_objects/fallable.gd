@@ -2,6 +2,8 @@ class_name Fallable
 
 extends Area2D
 
+@export var fallable_type: Types
+
 @export_subgroup("Fallable Settings")
 @export var fall_speed: float = 100.0
 @export var fall_step: float = 1.0
@@ -13,7 +15,20 @@ extends Area2D
 @export_subgroup("Fallable Sound Effects")
 @export var player_hit_sound: SoundEffectSettings.SOUND_EFFECT_TYPE = SoundEffectSettings.SOUND_EFFECT_TYPE.NONE
 
+
+enum Types {
+	NONE,
+	SHIELD,
+	DAMAGE,
+	HEAL,
+	COIN,
+	SLOW_MOTION,
+}
+
 func _ready():
+	if not fallable_type in Types or fallable_type == Types.NONE:
+		assert(false, "Invalid fallable type: " + str(fallable_type))
+
 	self.body_entered.connect(handle_body_entered)
 
 

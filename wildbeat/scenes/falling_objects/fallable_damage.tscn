@@ -11,6 +11,7 @@ colors = PackedColorArray(0.760203, 3.70607e-06, 4.81307e-07, 1, 1, 1, 1, 0)
 
 [node name="FallableDamage" type="Area2D" node_paths=PackedStringArray("collect_particles")]
 script = ExtResource("1_2ie4j")
+fallable_type = 2
 spawn_weight = 30.0
 collect_particles = NodePath("UniversalCollectParticles")
 metadata/_custom_type_script = "uid://ct15pbagi3kxb"

@@ -4,10 +4,19 @@ extends Marker2D
 
 @export var minimum_spawn_delay: float = 1.0
 @export var maximum_spawn_delay: float = 10.0
+@export var adjust_increase: Array[Fallable.Types] = [Fallable.Types.DAMAGE]
+@export var adjust_decrease: Array[Fallable.Types] = [
+	Fallable.Types.SHIELD,
+	Fallable.Types.HEAL,
+	Fallable.Types.SLOW_MOTION
+]
+@export var min_weight: float = 1.0
+@export var max_weight: float = 100.0
+@export var adjust_by: float = 0.1
 
 @onready var spawn_timer: Timer = Timer.new()
 
-# Dictionary of type {"scene": PackedScene, "weight": float, "name": String}
+# Dictionary of type {"scene": PackedScene, "weight": float, "name": String, "type": Fallables}
 var fallables: Array[Dictionary] = []
 var slowed: bool = false # make sure newly spawned fallables are also slowed
 var total_weight: float = 0
@@ -23,6 +32,21 @@ func _ready() -> void:
 
 	init_timer()
 
+	ScoreManager.on_score_change.connect(handle_score_change)
+
+
+func handle_score_change(new_score: int) -> void:
+	maximum_spawn_delay = max(maximum_spawn_delay - (new_score / 200.0), 2.0)
+	# adjust weights of fallables
+	for fallable in fallables:
+		var type = fallable["type"]
+		if type in adjust_increase:
+			fallable["weight"] += adjust_by
+		elif type in adjust_decrease:
+			fallable["weight"] -= adjust_by
+
+		fallable["weight"] = clamp(fallable["weight"], min_weight, max_weight)
+
 
 func init_fallables() -> void:
 	for child in get_children():
@@ -32,7 +56,8 @@ func init_fallables() -> void:
 			fallables.append({
 				"scene": packed,
 				"weight": child.spawn_weight,
-				"name": child.name
+				"name": child.name,
+				"type": child.fallable_type
 			})
 			print("Added spawnable: ", child.name, " with weight: ", child.spawn_weight)
 			total_weight += child.spawn_weight
@@ -48,18 +73,8 @@ func init_timer() -> void:
 
 func start_timer() -> void:
 	# decrease the maximum_spawn_delay by 0.5 second for every 100 points scored,
-	# also decrease or increase the weights of the Fallables until maximum_spawn_delay 
+	# also decrease or increase the weights of the Fallables until maximum_spawn_delay
 	# reaches 2.0 seconds
-	if maximum_spawn_delay > (minimum_spawn_delay + 1.0):
-		var upper_spawn_delay = maximum_spawn_delay - (float(ScoreManager.score) / 200.0)
-		maximum_spawn_delay = upper_spawn_delay
-		var children = self.get_children()
-		for fallable in fallables:
-			match fallable.name:
-				"FallableDamage":
-					fallable["weight"] += 0.5
-	print("maximum spawn delay:", maximum_spawn_delay)
-	print("damage spawn weight:", fallables[1]["weight"])
 	var wait_time = randf_range(minimum_spawn_delay, maximum_spawn_delay)
 	spawn_timer.start(wait_time)
 
