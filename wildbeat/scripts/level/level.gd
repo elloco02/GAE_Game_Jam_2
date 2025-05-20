@@ -30,18 +30,19 @@ func init_board() -> void:
 
 
 func init_spawners() -> void:
-	var spawners: Array[PackedScene] = []
+	var spawners: Array[Spawner] = []
 	for child in get_children():
 		if child is Spawner:
-			var packed = PackedScene.new()
-			packed.pack(child)
-			spawners.append(packed)
+			spawners.append(child)
 			print("found spawner: ", child.name)
 
 	if spawners.size() == 0:
 		assert(false, "No spawners found in level.")
 
 	for column in range(movement_manager.columns):
-		var spawner: Spawner = spawners[column % (spawners.size())].instantiate()
+		var spawner: Spawner = spawners[column % (spawners.size())]
+		if column > spawners.size() - 1:
+			spawner = spawners[column % (spawners.size())].duplicate()
+
 		var spawner_position = movement_manager.get_column_position(column, true)
 		spawner.position = spawner_position
