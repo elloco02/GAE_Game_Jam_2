@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://do5p8wqmnca6j"]
+[gd_scene load_steps=17 format=4 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://qofjtjsd0h55" path="res://scenes/falling_objects/fallable_heal.tscn" id="8_imi8r"]
 [ext_resource type="PackedScene" uid="uid://dsvkh26rjumji" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
 [ext_resource type="Script" uid="uid://3innvi4vd4o4" path="res://scripts/level/score.gd" id="9_tw3y1"]
-[ext_resource type="AudioStream" uid="uid://ciaop5kv0fus7" path="res://ost.mp3" id="13_djx54"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
 texture = ExtResource("2_4k7sf")
@@ -185,9 +184,3 @@ offset_bottom = 28.0
 text = "Score"
 label_settings = SubResource("LabelSettings_tw3y1")
 script = ExtResource("9_tw3y1")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_djx54")
-volume_db = 8.0
-autoplay = true
-parameters/looping = true
