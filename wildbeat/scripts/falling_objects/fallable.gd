@@ -54,7 +54,8 @@ func fall_down(time: float) -> void:
 	self.position.y = self.position.y + fall_speed * time * fall_step
 
 
-# Not doing queue_free() immediately to allow for the animation to play
+# Not doing queue_free() immediately to allow for animation to play and the slow
+# motion effects to finish
 func remove_fallable() -> void:
 	var childs = get_children()
 	for child in childs:
@@ -64,6 +65,9 @@ func remove_fallable() -> void:
 	if collect_particles:
 		# 2 extra seconds to be sure the particles are done
 		get_tree().create_timer(collect_particles.lifetime + 2.0).timeout.connect(_free)
+	elif self is FallableSlowMotion:
+		# 2 extra seconds to be sure that the slow motion effect is done
+		get_tree().create_timer(self.slow_duration + 2.0).timeout.connect(_free)
 	else:
 		_free()
 

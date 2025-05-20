@@ -10,7 +10,7 @@ func on_player_entered(_player: Player) -> void:
 	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_SLOWMOTION_LINE)
 	var spawner: Spawner = self.get_parent()
 	self.activate_slow(spawner)
-	self.camouflage()
+	#self.camouflage()
 	# keep slow for slow_duration
 	await get_tree().create_timer(self.slow_duration).timeout
 	self.deactivate_slow(spawner)
