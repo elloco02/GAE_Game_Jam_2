@@ -53,5 +53,4 @@ func move_player_to(column: int) -> void:
 
 func player_dies():
 	print("player died.")
-	await SceneManager.change_scene_to("res://scenes/menu/player_death.tscn")
-	GameManager.display_time()
+	GameManager.end_game()

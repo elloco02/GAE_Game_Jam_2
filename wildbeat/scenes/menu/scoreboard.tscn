@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg4eu41s0rrxh"]
+[gd_scene load_steps=4 format=3 uid="uid://dg4eu41s0rrxh"]
 
 [ext_resource type="Script" uid="uid://bkbog4ynkjufx" path="res://scripts/menu/scoreboard.gd" id="1_2utu0"]
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_i7sph"]
+[ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="2_v7cmf"]
+[ext_resource type="PackedScene" uid="uid://6xofj7gckonj" path="res://scenes/menu/main_menu.tscn" id="3_7nkf6"]
 
 [node name="Scoreboard" type="Control"]
 layout_mode = 3
@@ -26,10 +27,12 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_i7sph")]
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+text = "Return"
+script = ExtResource("2_v7cmf")
+scene = ExtResource("3_7nkf6")
+metadata/_custom_type_script = "uid://dnnboivsxqcra"
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

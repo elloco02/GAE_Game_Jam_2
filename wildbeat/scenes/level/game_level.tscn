@@ -179,7 +179,8 @@ shape = SubResource("RectangleShape2D_k86hv")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
-[node name="HeartsContainer" parent="UserInterface" instance=ExtResource("6_tdwdi")]
+[node name="HeartsContainer" parent="UserInterface" node_paths=PackedStringArray("player") instance=ExtResource("6_tdwdi")]
+player = NodePath("../../Player")
 
 [node name="Label" type="Label" parent="UserInterface"]
 offset_left = 7.0

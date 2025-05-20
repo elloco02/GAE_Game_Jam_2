@@ -11,4 +11,4 @@ offset_bottom = 40.0
 [node name="MainMenu" parent="." instance=ExtResource("1_6krlh")]
 layout_mode = 0
 text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+script = null

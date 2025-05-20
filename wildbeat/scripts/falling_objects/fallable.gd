@@ -61,7 +61,11 @@ func remove_fallable() -> void:
 		if child is CollisionShape2D or child is ColorRect:
 			child.queue_free()
 	fall_speed = 0
-	get_tree().create_timer(5).timeout.connect(_free)
+	if collect_particles:
+		# 2 extra seconds to be sure the particles are done
+		get_tree().create_timer(collect_particles.lifetime + 2.0).timeout.connect(_free)
+	else:
+		_free()
 
 
 func _free() -> void:

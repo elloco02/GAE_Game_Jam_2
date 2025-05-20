@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://6xofj7gckonj"]
+[gd_scene load_steps=6 format=3 uid="uid://6xofj7gckonj"]
 
-[ext_resource type="PackedScene" uid="uid://bxcqmd62k3xuh" path="res://scenes/menu/button.tscn" id="1_36a0n"]
+[ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="1_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="2_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://b6fj6gkawn4y2" path="res://scenes/menu/about.tscn" id="2_247la"]
+[ext_resource type="PackedScene" uid="uid://do5p8wqmnca6j" path="res://scenes/level/game_level.tscn" id="2_xn6kt"]
+[ext_resource type="PackedScene" uid="uid://bkg8w0c81g0cf" path="res://scenes/menu/settings.tscn" id="3_xn6kt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,33 +39,36 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Play" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play Game"
-scene_path = "res://scenes/level/game_level.tscn"
+script = ExtResource("1_3rkf3")
+scene = ExtResource("2_xn6kt")
+reset_score = true
 
-[node name="ScoreBoard" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+[node name="ScoreboardButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Score Board
-"
-scene_path = "res://scenes/menu/scoreboard.tscn"
+text = "Scoreboard"
+script = ExtResource("1_3rkf3")
+reset_score = null
 
-[node name="Settings" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings
-"
-scene_path = "res://scenes/menu/settings.tscn"
+text = "Settings"
+script = ExtResource("1_3rkf3")
+scene = ExtResource("3_xn6kt")
+reset_score = null
 
-[node name="About" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+[node name="AboutButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "About
-"
-scene_path = "res://scenes/menu/about.tscn"
+text = "About"
+script = ExtResource("1_3rkf3")
+scene = ExtResource("2_247la")
+reset_score = null
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Quit" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_36a0n")]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_3rkf3")]
 layout_mode = 2
-text = "Quit Game"
