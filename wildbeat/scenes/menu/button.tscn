@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxcqmd62k3xuh"]
-
-[ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="1_htwd1"]
-
-[node name="Button" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("1_htwd1")

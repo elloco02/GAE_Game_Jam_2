@@ -1,5 +1,7 @@
 extends Node
 
+const HIGHSCORE_FILE = "user://highscores.json"
+
 var score = 0
 var highscores = []
 
@@ -25,14 +27,14 @@ func save_highscore(username: String) -> void:
 	highscores.append(score_data)
 	highscores.sort_custom(func(a, b): return a["score"] > b["score"])
 
-	var file = FileAccess.open("user://highscores.json", FileAccess.WRITE)
+	var file = FileAccess.open(HIGHSCORE_FILE, FileAccess.WRITE)
 	file.store_string(JSON.stringify(highscores))
 	print("Saved highscore for ", username, " with score ", score)
 
 
 func load_highscores() -> Array:
-	if FileAccess.file_exists("user://highscores.json"):
-		var file = FileAccess.open("user://highscores.json", FileAccess.READ)
+	if FileAccess.file_exists(HIGHSCORE_FILE):
+		var file = FileAccess.open(HIGHSCORE_FILE, FileAccess.READ)
 		var content = file.get_as_text()
 		var loaded_scores = JSON.parse_string(content)
 		if loaded_scores is Array:
