@@ -30,6 +30,17 @@ func change_scene_to(scene_path: String) -> void:
 				gameManager.get_child(0).queue_free()
 
 
+	var current_music_type = AudioManager.get_current_music_type()
+
+	if scene_path == "res://scenes/level/game_level.tscn":
+		if current_music_type != SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME:
+			AudioManager.stop_music(current_music_type)
+			AudioManager.create_2d_audio_at_location(Vector2(0, 0), SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_GAME)
+	else:
+		if current_music_type != SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU:
+			AudioManager.stop_music(current_music_type)
+			AudioManager.create_2d_audio_at_location(Vector2(0, 0), SoundEffectSettings.SOUND_EFFECT_TYPE.BACKGROUND_MUSIC_IN_MENU)
+	
 	var new_scene = load(scene_path).instantiate()
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene = new_scene
