@@ -34,10 +34,13 @@ func _ready() -> void:
 	ScoreManager.on_score_change.connect(handle_score_change)
 
 
-# decrease the maximum_spawn_delay by 0.5 second for every coin collected,
-# also decrease or increase the weights of the Fallables for every coin collected
+# adjust the Fallable weights and maximum_spawn_delay for each coin collected:
+# decrease the maximum_spawn_delay by 0.5 seconds
+# decrease the weight for FallableHeal, FallableShield and FallableSlowMotion by 0.1
+# increase the weight for FallableDamage by 0.1
 func handle_score_change(new_score: int) -> void:
 	maximum_spawn_delay = max(maximum_spawn_delay - (new_score / 200.0), 2.0)
+	print("maximum_spawn_delay: ", maximum_spawn_delay)
 	# adjust weights of fallables
 	for fallable in fallables:
 		var type = fallable["type"]

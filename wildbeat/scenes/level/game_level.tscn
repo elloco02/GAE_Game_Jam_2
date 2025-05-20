@@ -139,7 +139,7 @@ position = Vector2(549, 357)
 [node name="FallableShield" parent="Spawner5" instance=ExtResource("9_djx54")]
 
 [node name="WorldBorder" type="Area2D" parent="."]
-position = Vector2(376, 632)
+position = Vector2(376, 704)
 script = ExtResource("6_is3dy")
 
 [node name="ColorRect" type="ColorRect" parent="WorldBorder"]
