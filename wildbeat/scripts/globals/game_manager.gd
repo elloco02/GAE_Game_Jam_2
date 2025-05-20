@@ -1,9 +1,6 @@
 extends Node
 
-func display_time():
-	var root = get_tree().get_current_scene()
-	print("root:" + str(root))
-	var scoreLabel = get_tree().current_scene.get_node("ScoreLabel")
-	if scoreLabel:
-		scoreLabel.text = "Your score: " + str(ScoreManager.score)
-	
+@onready var player_death_scene: PackedScene = preload("res://scenes/menu/player_death.tscn")
+
+func end_game():
+	await SceneManager.change_scene_to(player_death_scene)

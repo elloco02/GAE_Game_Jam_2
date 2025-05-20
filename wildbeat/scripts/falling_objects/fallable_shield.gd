@@ -2,10 +2,8 @@ class_name FallableShield
 
 extends Fallable
 
-@export var amount: int = 1
-
-# player receives a shield that protects from damage
+# Player receives a shield
 func on_player_entered(player: Player) -> void:
-	AudioManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.PLAYER_SHIELDING)
-	player.activate_shield()
 	print("shield collected")
+	if player.shield:
+		player.shield.activate()

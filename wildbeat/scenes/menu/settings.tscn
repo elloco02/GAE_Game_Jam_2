@@ -28,7 +28,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master"
 
@@ -40,7 +40,7 @@ step = 0.001
 script = ExtResource("2_dxr1k")
 bus_name = "Master"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
 
@@ -52,7 +52,7 @@ step = 0.001
 script = ExtResource("2_dxr1k")
 bus_name = "Music"
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sfx"
 
@@ -71,4 +71,4 @@ layout_mode = 2
 [node name="MainMenu" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_osheh")]
 layout_mode = 2
 text = "return"
-scene_path = "res://scenes/menu/main_menu.tscn"
+script = null

@@ -1,0 +1,3 @@
+class_name HealCollectParticle
+
+extends CPUParticles2D
