@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bmbailvxo07ms" path="res://scenes/background/background.tscn" id="1_isoef"]
 [ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="1_qgo02"]
 [ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="2_3rkf3"]
-[ext_resource type="PackedScene" uid="uid://cklfbpn2f0wk6" path="res://scenes/menu/about.tscn" id="2_247la"]
 [ext_resource type="PackedScene" uid="uid://do5p8wqmnca6j" path="res://scenes/level/game_level.tscn" id="2_xn6kt"]
 [ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="3_isoef"]
 [ext_resource type="PackedScene" uid="uid://bkg8w0c81g0cf" path="res://scenes/menu/settings.tscn" id="3_xn6kt"]
+[ext_resource type="Script" uid="uid://cg2nwubljngmy" path="res://scripts/menu/frame/frame_button.gd" id="5_isoef"]
+[ext_resource type="PackedScene" uid="uid://dd5vrwfmxvrk8" path="res://scenes/menu/credits/credit_screen.tscn" id="5_xn6kt"]
+[ext_resource type="PackedScene" uid="uid://dm7scsrhl5veb" path="res://scenes/menu/frame/frame.tscn" id="7_qgo02"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,24 +32,17 @@ expand_mode = 1
 
 [node name="Background_Assets" parent="." instance=ExtResource("1_isoef")]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 326.0
+offset_top = 50.0
+offset_right = 423.0
+offset_bottom = 598.0
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Play Game"
 script = ExtResource("1_3rkf3")
@@ -55,27 +50,44 @@ scene = ExtResource("2_xn6kt")
 reset_score = true
 to_game = true
 
-[node name="ScoreboardButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ScoreboardButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Scoreboard"
 script = ExtResource("1_3rkf3")
 scene = ExtResource("3_isoef")
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 script = ExtResource("1_3rkf3")
 scene = ExtResource("3_xn6kt")
 
-[node name="AboutButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" node_paths=PackedStringArray("frame")]
 layout_mode = 2
-text = "About"
-script = ExtResource("1_3rkf3")
-scene = ExtResource("2_247la")
+text = "Credits"
+script = ExtResource("5_isoef")
+frame = NodePath("../../Credits")
+metadata/_custom_type_script = "uid://cg2nwubljngmy"
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_3rkf3")]
+[node name="QuitButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("2_3rkf3")]
 layout_mode = 2
+
+[node name="Credits" parent="CanvasLayer" instance=ExtResource("7_qgo02")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 750.0
+offset_bottom = 648.0
+title = "Credits"
+
+[node name="CreditsContainer" parent="CanvasLayer/Credits" instance=ExtResource("5_xn6kt")]
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 670.0
+offset_bottom = 570.0
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/CreditsButton" to="CanvasLayer/VBoxContainer/CreditsButton" method="_on_pressed"]
