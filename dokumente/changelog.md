@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ### Added
-| Feature | Datum | Issue | Grund |
+| Change | Date | Issue | Reason |
 |--------|--------|--------|--------|
 | Added basic Scene manager | 30.04.2025 | [#1](https://github.com/elloco02/GAE_Game_Jam_2/issues/1) |  |
 | Created movable character | 02.05.2025 | [#3](https://github.com/elloco02/GAE_Game_Jam_2/issues/3) |  |
@@ -17,16 +17,20 @@ All notable changes to this project will be documented in this file.
 | Create Background music | 18.05.2025 | [#20](https://github.com/elloco02/GAE_Game_Jam_2/issues/20) |  |
 | Create Sound effects | 20.05.2025 | [#21](https://github.com/elloco02/GAE_Game_Jam_2/issues/21) |  |
 | Created Scoreboard | 17.05.2025 | [#22](https://github.com/elloco02/GAE_Game_Jam_2/issues/22) | To bring a competitive aspect to the game |
+| Create Credit Screen  | 21.05.2025 | [#24](https://github.com/elloco02/GAE_Game_Jam_2/issues/24) | |
+| Create Game-Background  | 22.05.2025 | [#26](https://github.com/elloco02/GAE_Game_Jam_2/issues/26) | |
 | Created score system | 15.05.2025 | [#32](https://github.com/elloco02/GAE_Game_Jam_2/issues/32) | To save the scores of a player |
 | Created different types of fallable objects | 17.05.2025 | [#34](https://github.com/elloco02/GAE_Game_Jam_2/issues/34) | We wanted more special object types |
 | Created multiple aligned spawners | 18.05.2025 | [#35](https://github.com/elloco02/GAE_Game_Jam_2/issues/35) | To have a spawner for each column |
 | Add Particles  | 18.05.2025 | [#36](https://github.com/elloco02/GAE_Game_Jam_2/issues/36) | To make the Game a bit more fancy |
+| Add Particles  | 18.05.2025 | [#36](https://github.com/elloco02/GAE_Game_Jam_2/issues/36) | To make the Game a bit more fancy |
+
 
 ---
 
 ### Changed
 
-| Änderung | Datum | Issue | Grund |
+| Change | Date | Issue | Reason |
 |---------|--------|--------|--------|
 | Fixed Camera position | 11.05.2025 | [#16](https://github.com/elloco02/GAE_Game_Jam_2/issues/16) | Not everything was aligned within the player view |
 | Bug: Player spawns at column 4 while internally being at 3 | 18.05.2025 | [#42](https://github.com/elloco02/GAE_Game_Jam_2/issues/42) | Player did not spawn at the correct position |
@@ -38,7 +42,7 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
-| Entferntes Element | Datum | Issue | Grund |
+| Change | Date | Issue | Reason |
 |--------------------|--------|--------|--------|
 | Removed Errors from project | 17.05.2025 | [#31](https://github.com/elloco02/GAE_Game_Jam_2/issues/31) | To make the code clean :) |
 | Removed Warnings from project | 18.05.2025 | [#45](https://github.com/elloco02/GAE_Game_Jam_2/issues/45) | To make the code clean :) |
