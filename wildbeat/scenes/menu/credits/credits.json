@@ -36,12 +36,11 @@
 			"title": "Third Party Assets",
 			"items": [
 				{
-					"title": "TBD",
-					"name": "TBD",
-					"creator": "TBD",
-					"url": "https://TBD.TBD",
-					"license": "TBD",
-					"license_url": "TBD"
+					"title": "Background Image",
+					"name": "Desert Background Vector",
+					"creator": "Matjannaaa",
+					"url": "https://matjannaaa.itch.io/desert-background",
+					"license": "Free Asset on itch.io",
 				},
 			]
 		},
@@ -57,17 +56,9 @@
 					"license_url": "https://godotengine.org/license/"
 				},
 				{
-					"title": "Graphics",
-					"name": "TBD",
-					"creator": "TBD",
-					"url": "TBD",
-					"license": "TBD",
-					"license_url": "TBD"
-				},
-				{
-					"title": "Music Creation",
-					"name": "1BITDRAGON",
-					"creator": "1BITDRAGON",
+					"title": "Music Creation Application",
+					"name": "1BitDragon",
+					"creator": "1BitDragon",
 					"url": "https://1bitdragon.com/",
 					"license": "Steam",
 					"license_url": "https://store.steampowered.com/app/1864790/1BITDRAGON/"
