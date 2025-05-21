@@ -1,0 +1,78 @@
+{
+	"intro": "This is the sandbox to test the template elements.",
+	
+	"roles": [
+		{
+			"role": "Code",
+			"creators": [
+				{
+					"name": "Eren Saglam",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Jonas Wächter",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Filip Cavar",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Vincent Reinhold",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+			]
+		},
+	],
+	
+	"thanks": "",
+	
+	"categories": [
+		{
+			"title": "Third Party Assets",
+			"items": [
+				{
+					"title": "TBD",
+					"name": "TBD",
+					"creator": "TBD",
+					"url": "https://TBD.TBD",
+					"license": "TBD",
+					"license_url": "TBD"
+				},
+			]
+		},
+		{
+			"title": "Software",
+			"items": [
+				{
+					"title": "Game Engine",
+					"name": "Godot Engine",
+					"creator": "",
+					"url": "https://godotengine.org/",
+					"license": "MIT",
+					"license_url": "https://godotengine.org/license/"
+				},
+				{
+					"title": "Graphics",
+					"name": "TBD",
+					"creator": "TBD",
+					"url": "TBD",
+					"license": "TBD",
+					"license_url": "TBD"
+				},
+				{
+					"title": "Music Creation",
+					"name": "1BITDRAGON",
+					"creator": "1BITDRAGON",
+					"url": "https://1bitdragon.com/",
+					"license": "Steam",
+					"license_url": "https://store.steampowered.com/app/1864790/1BITDRAGON/"
+				}
+			]
+		}
+	]
+}
