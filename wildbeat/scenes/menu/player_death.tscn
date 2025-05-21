@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://0h6n2bqnnac1"]
+[gd_scene load_steps=8 format=3 uid="uid://0h6n2bqnnac1"]
 
 [ext_resource type="Script" uid="uid://btfm72y05u284" path="res://scripts/menu/buttons/submit_button.gd" id="1_f6od2"]
-[ext_resource type="Script" uid="uid://c8e07fn3bgd32" path="res://scripts/menu/player_death.gd" id="1_gmes8"]
+[ext_resource type="Script" path="res://scripts/menu/player_death.gd" id="1_gmes8"]
+[ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="2_gmes8"]
 [ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="2_o460v"]
 [ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="3_o460v"]
 [ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="4_o460v"]
@@ -35,6 +36,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_gmes8")
+expand_mode = 1
 
 [node name="DeathLabel" type="Label" parent="."]
 custom_minimum_size = Vector2(200, 50)
@@ -98,7 +101,6 @@ text = "Submit"
 script = ExtResource("1_f6od2")
 scene = ExtResource("2_o460v")
 reset_score = true
-metadata/_custom_type_script = "uid://dnnboivsxqcra"
 
 [node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)
