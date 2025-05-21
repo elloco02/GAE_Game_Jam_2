@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://6xofj7gckonj"]
+[gd_scene load_steps=9 format=3 uid="uid://6xofj7gckonj"]
 
-[ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="1_3rkf3"]
+[ext_resource type="Script" path="res://scripts/user_interface/audio_button.gd" id="1_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://bmbailvxo07ms" path="res://scenes/background/background.tscn" id="1_isoef"]
+[ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="1_qgo02"]
 [ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="2_3rkf3"]
-[ext_resource type="PackedScene" uid="uid://b6fj6gkawn4y2" path="res://scenes/menu/about.tscn" id="2_247la"]
+[ext_resource type="PackedScene" uid="uid://cklfbpn2f0wk6" path="res://scenes/menu/about.tscn" id="2_247la"]
 [ext_resource type="PackedScene" uid="uid://do5p8wqmnca6j" path="res://scenes/level/game_level.tscn" id="2_xn6kt"]
 [ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="3_isoef"]
 [ext_resource type="PackedScene" uid="uid://bkg8w0c81g0cf" path="res://scenes/menu/settings.tscn" id="3_xn6kt"]
@@ -22,6 +24,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_qgo02")
+expand_mode = 1
+
+[node name="Background_Assets" parent="." instance=ExtResource("1_isoef")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
