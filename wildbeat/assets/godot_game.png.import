@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jbxi4ur45xs5"
-path="res://.godot/imported/tetrominoes.png-4af35f4d5494ba7950c5aa076f37a7dc.ctex"
+uid="uid://cnodswej6fl8l"
+path="res://.godot/imported/godot_game.png-d47b81cd921ebad5b4c44086ae240d3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/level/tetrominoes.png"
-dest_files=["res://.godot/imported/tetrominoes.png-4af35f4d5494ba7950c5aa076f37a7dc.ctex"]
+source_file="res://assets/godot_game.png"
+dest_files=["res://.godot/imported/godot_game.png-d47b81cd921ebad5b4c44086ae240d3d.ctex"]
 
 [params]
 

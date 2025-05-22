@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1ts4g5tvycvd"]
+[gd_scene load_steps=6 format=3 uid="uid://d1ts4g5tvycvd"]
 
 [ext_resource type="Script" uid="uid://ct15pbagi3kxb" path="res://scripts/falling_objects/fallable_damage.gd" id="1_2ie4j"]
 [ext_resource type="PackedScene" uid="uid://dxbx2pvg5k61q" path="res://scenes/falling_objects/particles/universal_collect_particles.tscn" id="2_1ewmp"]
+[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://assets/godot_game.png" id="3_cnfxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie4j"]
 size = Vector2(48, 48)
@@ -19,16 +20,14 @@ metadata/_custom_type_script = "uid://ct15pbagi3kxb"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2ie4j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
-color = Color(0.827451, 0.184314, 0.184314, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="UniversalCollectParticles" parent="." instance=ExtResource("2_1ewmp")]
 emitting = false
 one_shot = true
 color = Color(1, 0.0745098, 0, 1)
 color_ramp = SubResource("Gradient_cnfxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("3_cnfxm")
+region_enabled = true
+region_rect = Rect2(0, 112, 16, 16)

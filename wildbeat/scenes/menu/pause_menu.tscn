@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxghw20k4v6qy"]
+[gd_scene load_steps=7 format=3 uid="uid://bxghw20k4v6qy"]
 
-[ext_resource type="Script" path="res://scripts/menu/pause_menu.gd" id="1_ux7g8"]
+[ext_resource type="Script" uid="uid://d3e17t3vyvniw" path="res://scripts/menu/pause_menu.gd" id="1_ux7g8"]
 [ext_resource type="Script" uid="uid://ci1qgrt4s4xaj" path="res://scripts/menu/buttons/resume_button.gd" id="2_2yk66"]
+[ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="2_mb26x"]
 [ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="3_msl3b"]
 [ext_resource type="Script" uid="uid://kgrc0tnbwdho" path="res://scripts/menu/buttons/pause_main_menu_button.gd" id="4_2yk66"]
 [ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="5_xkyws"]
@@ -28,6 +29,7 @@ offset_right = 100.0
 offset_bottom = 241.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_mb26x")
 theme_override_font_sizes/font_size = 50
 text = "Paused"
 uppercase = true
@@ -51,11 +53,13 @@ alignment = 1
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_mb26x")
 text = "Resume"
 script = ExtResource("2_2yk66")
 
 [node name="MainMenuButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_msl3b")]
 layout_mode = 2
+theme = ExtResource("2_mb26x")
 script = ExtResource("4_2yk66")
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -64,3 +68,4 @@ layout_mode = 2
 
 [node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_xkyws")]
 layout_mode = 2
+theme = ExtResource("2_mb26x")
