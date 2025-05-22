@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dm4te36ri0l3c" path="res://scenes/falling_objects/particles/shield_particles.tscn" id="4_o0o36"]
 [ext_resource type="PackedScene" uid="uid://h8ywxk71anqm" path="res://scenes/level/health.tscn" id="5_tj1sg"]
 [ext_resource type="PackedScene" uid="uid://bcr2gxoj4tjaa" path="res://scenes/level/shield.tscn" id="6_pe35h"]
-[ext_resource type="Texture2D" uid="uid://ddimyukgulrd2" path="res://asstets/godot_game.png" id="6_tj1sg"]
+[ext_resource type="Texture2D" uid="uid://cnodswej6fl8l" path="res://assets/godot_game.png" id="6_tj1sg"]
 [ext_resource type="Script" uid="uid://ctviampocgwyy" path="res://scripts/animation_handler.gd" id="7_pe35h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]

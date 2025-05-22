@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ct15pbagi3kxb" path="res://scripts/falling_objects/fallable_damage.gd" id="1_2ie4j"]
 [ext_resource type="PackedScene" uid="uid://dxbx2pvg5k61q" path="res://scenes/falling_objects/particles/universal_collect_particles.tscn" id="2_1ewmp"]
-[ext_resource type="Texture2D" uid="uid://6rkovksda7ma" path="res://asstets/godot_game.png" id="3_cnfxm"]
+[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://assets/godot_game.png" id="3_cnfxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie4j"]
 size = Vector2(48, 48)

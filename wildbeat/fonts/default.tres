@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://bm5qpjcw7n65h"]
 
 [ext_resource type="FontFile" uid="uid://cj3nwxklulrpv" path="res://fonts/pixel_font.ttf" id="1_gtbrs"]
-[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://asstets/godot_game.png" id="2_gtbrs"]
+[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://assets/godot_game.png" id="2_gtbrs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtbrs"]
 content_margin_left = 4.0
@@ -36,17 +36,13 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgj5a"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtbrs"]
+texture = ExtResource("2_gtbrs")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(97, 81, 30, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q43l0"]
 texture = ExtResource("2_gtbrs")
@@ -56,17 +52,13 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(97, 65, 30, 14)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjyev"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbcrc"]
+texture = ExtResource("2_gtbrs")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(97, 97, 30, 14)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q43l0"]
 
@@ -92,9 +84,9 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_gtbrs")
 Button/styles/disabled = SubResource("StyleBoxFlat_gtbrs")
 Button/styles/focus = SubResource("StyleBoxFlat_kbcrc")
-Button/styles/hover = SubResource("StyleBoxFlat_lgj5a")
+Button/styles/hover = SubResource("StyleBoxTexture_gtbrs")
 Button/styles/normal = SubResource("StyleBoxTexture_q43l0")
-Button/styles/pressed = SubResource("StyleBoxFlat_cjyev")
+Button/styles/pressed = SubResource("StyleBoxTexture_kbcrc")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

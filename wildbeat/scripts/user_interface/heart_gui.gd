@@ -1,12 +1,12 @@
 extends Panel
 
-@onready var filled_rect: ColorRect = $Filled
-@onready var empty_rect: ColorRect = $Empty 
+@onready var filled_image: Sprite2D = $Filled
+@onready var empty: Sprite2D = $Empty
 
 func update(filled: bool) -> void:
 	if filled:
-		filled_rect.visible = true
-		empty_rect.visible = false
+		filled_image.visible = true
+		empty.visible = false
 	else:
-		filled_rect.visible = false
-		empty_rect.visible = true
+		filled_image.visible = false
+		empty.visible = true

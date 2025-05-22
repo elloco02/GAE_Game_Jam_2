@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="1_6oqjl"]
 [ext_resource type="Script" uid="uid://bxyrbygaykot2" path="res://scripts/menu/frame/frame.gd" id="1_ypjpf"]
-[ext_resource type="Texture2D" uid="uid://b7x8mr5rgtixk" path="res://scenes/menu/frame/frame.png" id="2_x1h3u"]
+[ext_resource type="Texture2D" uid="uid://cnodswej6fl8l" path="res://assets/godot_game.png" id="3_x3q1t"]
 [ext_resource type="FontFile" uid="uid://cj3nwxklulrpv" path="res://fonts/pixel_font.ttf" id="4_x3q1t"]
 
 [sub_resource type="Theme" id="Theme_6oqjl"]
@@ -43,11 +43,8 @@ theme_override_constants/margin_bottom = 40
 self_modulate = Color(0.31, 0.31, 0.31, 1)
 layout_mode = 2
 theme = ExtResource("1_6oqjl")
-texture = ExtResource("2_x1h3u")
-patch_margin_left = 40
-patch_margin_top = 40
-patch_margin_right = 40
-patch_margin_bottom = 40
+texture = ExtResource("3_x3q1t")
+region_rect = Rect2(107, 83, 5, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
 layout_mode = 1

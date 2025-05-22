@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmbailvxo07ms"]
 
-[ext_resource type="Texture2D" uid="uid://ddimyukgulrd2" path="res://asstets/godot_game.png" id="1_tp5tj"]
+[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://assets/godot_game.png" id="1_tp5tj"]
 [ext_resource type="Script" uid="uid://c4ymt8qoeouc1" path="res://scripts/background/sprite_scale.gd" id="3_ewwm8"]
 [ext_resource type="Script" uid="uid://lgusfnshy8qw" path="res://scripts/background/sprite_wobble.gd" id="3_rsf5d"]
 [ext_resource type="Script" uid="uid://b1iiadfdv3e05" path="res://scripts/background/sprite_rotate.gd" id="4_ewwm8"]
