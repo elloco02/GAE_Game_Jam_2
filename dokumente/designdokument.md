@@ -5,7 +5,7 @@ Dodgemania
 
 ### Kern (Vision oder Box-Rückseitentext):
 **Dodgemania** ist ein kurzes und schnelles 2D-Arcade-Spiel, in dem du deine Reaktionszeit und Geschicklichkeit unter Beweis stellen kannst. Von oben regnen meteoritenartig Objekte herunter.
-Der arme INSERT_NAME ist unbeholfen und weiß nicht, wie er den Objekten ausweichen soll. Nur DU kannst ihm helfen, solange wie möglich zu überleben. Aber überleben ist nicht alles.
+Der arme Cowboy ist unbeholfen und weiß nicht, wie er den Objekten ausweichen soll. Nur DU kannst ihm helfen, solange wie möglich zu überleben. Aber überleben ist nicht alles.
 Es wäre ja schließlich zu leicht, nur Gegenständen auszuweichen. Dein größtes Ziel ist es, Punkte zu sammeln, um zu beweisen, dass du der Beste bist.
 Weiche gefährlichen Objekten aus, sammle zahlreiche Münzen und erkunde die Macht der Powerups!
 
@@ -32,4 +32,6 @@ Du kannst zum Schluss deinen Namen eintragen und den Score speichern. Im Scorebo
 ### Risiken:
 - **Monotonie durch zu wenig Variation**: Es besteht die Gefahr, dass das Spiel zu repetitiv wirkt. Gegenmaßnahme: Einführung verschiedener Powerups, anpassbarer Schwierigkeitsgrad, visuelle Abwechslung.
 - **Balancing der Objekte**: Zu viele Powerups oder zu häufige Hindernisse können das Spielgefühl negativ beeinflussen. Regelmäßiges Playtesting ist notwendig.
-- **Schöne Grafiken**: Schöne und vorallem einheitliche Grafiken zu erstellen ist sehr zeitaufwendig. Externe OpenSource Assets sollten bei Zeitdruck in Erwägung gezogen werden.
+- **Schöne Grafiken**: Unsere Gameloop ist sehr simpel. Daher ist ein großer Teil unseres Sellingpoints schöne Grafiken zu erstellen. Schöne und vorallem einheitliche Grafiken zu erstellen ist aber sehr zeitaufwendig. Externe OpenSource Assets sollten bei Zeitdruck in Erwägung gezogen werden.
+- **Wenig Erfahrung bei Grid-basiertem Movement**: Wir haben nur sehr wenig Erfahrung mit der Implementierung eines 2D Feldes, in dem man einen Spieler durch Zellen bewegen kann. Zu verstehen, wie die Objekte angeordnet werden und wie sich der Spieler richtig bewegen kann, wird sehr viel Zeit erfordern.
+- **Wenig Erfahrung in VFX**: Von uns hat zuvor noch keiner Partikel erstellt. Hier muss viel experimentiert und recherchiert werden, weswegen auch das viel Zeit in Anspruch nimmt.
