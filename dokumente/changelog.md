@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 | Create Sound effects | 20.05.2025 | [#21](https://github.com/elloco02/GAE_Game_Jam_2/issues/21) |  |
 | Created Scoreboard | 17.05.2025 | [#22](https://github.com/elloco02/GAE_Game_Jam_2/issues/22) | To bring a competitive aspect to the game |
 | Create Credit Screen  | 21.05.2025 | [#24](https://github.com/elloco02/GAE_Game_Jam_2/issues/24) | |
+| Create Graphics  | 22.05.2025 | [#25](https://github.com/elloco02/GAE_Game_Jam_2/issues/25) | |
 | Create Game-Background  | 22.05.2025 | [#26](https://github.com/elloco02/GAE_Game_Jam_2/issues/26) | |
 | Created score system | 15.05.2025 | [#32](https://github.com/elloco02/GAE_Game_Jam_2/issues/32) | To save the scores of a player |
 | Created different types of fallable objects | 17.05.2025 | [#34](https://github.com/elloco02/GAE_Game_Jam_2/issues/34) | We wanted more special object types |
