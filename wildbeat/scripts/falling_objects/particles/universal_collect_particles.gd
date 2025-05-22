@@ -1,0 +1,3 @@
+class_name UniversalCollectParticles
+
+extends CPUParticles2D

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsvkh26rjumji"]
+
+[ext_resource type="Script" uid="uid://wg5yrvyy58b4" path="res://scripts/falling_objects/fallable_shield.gd" id="1_71xbv"]
+[ext_resource type="Texture2D" uid="uid://cj73gp805r0ck" path="res://assets/godot_game.png" id="2_wdfqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cta8x"]
+size = Vector2(48, 48)
+
+[node name="FallableShield" type="Area2D"]
+script = ExtResource("1_71xbv")
+fallable_type = 1
+metadata/_custom_type_script = "uid://wg5yrvyy58b4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cta8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_wdfqv")
+region_enabled = true
+region_rect = Rect2(0, 81, 16, 16)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjr48vk8qg374"]
+
+[ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="1_kup66"]
+
+[node name="MainMenuButton" type="Button"]
+text = "Main Menu"
+script = ExtResource("1_kup66")
+to_main_menu = true
+reset_score = true
+metadata/_custom_type_script = "uid://dnnboivsxqcra"

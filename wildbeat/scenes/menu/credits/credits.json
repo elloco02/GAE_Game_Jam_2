@@ -1,0 +1,76 @@
+{
+	"intro": "This is the sandbox to test the template elements.",
+	
+	"roles": [
+		{
+			"role": "Code",
+			"creators": [
+				{
+					"name": "Eren Saglam",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Jonas Wächter",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Filip Cavar",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+				{
+					"name": "Vincent Reinhold",
+					"url": "https://sepia2023.itch.io/dodgemania",
+					
+				},
+			]
+		},
+	],
+	
+	"thanks": "",
+	
+	"categories": [
+		{
+			"title": "Third Party Assets",
+			"items": [
+				{
+					"title": "Background Image",
+					"name": "Desert Background Vector",
+					"creator": "Matjannaaa",
+					"url": "https://matjannaaa.itch.io/desert-background",
+					"license": "Free Asset on itch.io",
+				},
+				{
+					"title": "Menu Music",
+					"name": "Western Adventures",
+					"creator": "David Fesliyan",
+					"url": "https://www.FesliyanStudios.com",
+					"license": "https://www.fesliyanstudios.com/policy",
+				},
+			]
+		},
+		{
+			"title": "Software",
+			"items": [
+				{
+					"title": "Game Engine",
+					"name": "Godot Engine",
+					"creator": "",
+					"url": "https://godotengine.org/",
+					"license": "MIT",
+					"license_url": "https://godotengine.org/license/"
+				},
+				{
+					"title": "Music Creation Application",
+					"name": "1BitDragon",
+					"creator": "1BitDragon",
+					"url": "https://1bitdragon.com/",
+					"license": "Steam",
+					"license_url": "https://store.steampowered.com/app/1864790/1BITDRAGON/"
+				}
+			]
+		}
+	]
+}

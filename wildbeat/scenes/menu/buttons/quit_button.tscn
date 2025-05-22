@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dppnoqqx04gow"]
+
+[ext_resource type="Script" uid="uid://b4tcyqb6b1wj6" path="res://scripts/menu/buttons/quit_button.gd" id="1_caaih"]
+
+[node name="QuitButton" type="Button"]
+text = "Quit Game"
+script = ExtResource("1_caaih")
+metadata/_custom_type_script = "uid://c0wrq8qpld55o"

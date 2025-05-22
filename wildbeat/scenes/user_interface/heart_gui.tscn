@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0fioa7mcqgci"]
+
+[ext_resource type="Script" uid="uid://cekhhaysw4785" path="res://scripts/user_interface/heart_gui.gd" id="1_vy5e0"]
+[ext_resource type="Texture2D" uid="uid://cnodswej6fl8l" path="res://assets/godot_game.png" id="2_17o24"]
+
+[node name="heartGUI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_vy5e0")
+
+[node name="Filled" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_17o24")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(2, 67, 12, 12)
+
+[node name="Empty" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_17o24")
+offset = Vector2(0, 10)
+region_enabled = true
+region_rect = Rect2(18, 67, 12, 12)

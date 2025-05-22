@@ -1,0 +1,152 @@
+[gd_scene load_steps=18 format=4 uid="uid://do5p8wqmnca6j"]
+
+[ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
+[ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="2_1nki0"]
+[ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="2_atsdl"]
+[ext_resource type="PackedScene" uid="uid://bunpa0d1qed5" path="res://scenes/level/movement_manager.tscn" id="3_djx54"]
+[ext_resource type="PackedScene" uid="uid://c7j53cdm6feex" path="res://scenes/level/player.tscn" id="3_k86hv"]
+[ext_resource type="PackedScene" uid="uid://iiu6jor6y31s" path="res://scenes/falling_objects/spawner.tscn" id="4_is3dy"]
+[ext_resource type="PackedScene" uid="uid://d1ts4g5tvycvd" path="res://scenes/falling_objects/fallable_damage.tscn" id="5_tdwdi"]
+[ext_resource type="PackedScene" uid="uid://c7o2osjxi716y" path="res://scenes/falling_objects/fallable_coin.tscn" id="6_46qwn"]
+[ext_resource type="Script" uid="uid://4j5kwr4it1b7" path="res://scripts/level/world_border.gd" id="6_is3dy"]
+[ext_resource type="PackedScene" uid="uid://cr4svtv42h0jx" path="res://scenes/user_interface/hearts_container.tscn" id="6_tdwdi"]
+[ext_resource type="PackedScene" uid="uid://pkgjdocpu3eu" path="res://scenes/falling_objects/fallable_slow_motion.tscn" id="7_qys2h"]
+[ext_resource type="PackedScene" uid="uid://qofjtjsd0h55" path="res://scenes/falling_objects/fallable_heal.tscn" id="8_imi8r"]
+[ext_resource type="PackedScene" uid="uid://dsvkh26rjumji" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
+[ext_resource type="Script" uid="uid://3innvi4vd4o4" path="res://scripts/level/score.gd" id="9_tw3y1"]
+
+[sub_resource type="TileSet" id="TileSet_45x5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k86hv"]
+size = Vector2(752, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tw3y1"]
+font_size = 20
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("movement_manager")]
+script = ExtResource("1_7comb")
+movement_manager = NodePath("MovementManager")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.709804)
+offset_right = 750.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme = ExtResource("2_1nki0")
+texture = ExtResource("2_atsdl")
+expand_mode = 1
+
+[node name="Board" type="TileMapLayer" parent="."]
+visible = false
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAPAAEAAAAAAAEAAAAPAAEAAAAAAAIAAAAPAAEAAAAAAAMAAAAPAAEAAAAAAAQAAAAPAAEAAAAAAAUAAAAPAAEAAAAAAAYAAAAPAAEAAAAAAAcAAAAPAAEAAAAAAAgAAAAPAAEAAAAAAAkAAAAPAAEAAAAAAAoAAAAPAAEAAAAAAAsAAAAPAAEAAAAAAAwAAAAPAAEAAAAAAA0AAAAPAAEAAAAAAA4AAAAPAAEAAAAAAA8AAAAPAAEAAAAAABAAAAAPAAEAAAAAABEAAAAPAAEAAAAAABIAAAAPAAEAAAAAABMAAAAPAAEAAAAAABQAAAAPAAEAAAAAABUAAAAPAAEAAAAAABYAAAAPAAEAAAAAABcAAAAPAAEAAAAAABgAAAAPAAEAAAAAABkAAAAPAAEAAAAAABoAAAAPAAEAAAAAABsAAAAPAAEAAAAAABwAAAAPAAEAAAAAAB0AAAAPAAEAAAAAAB4AAAAPAAEAAAAAAB8AAAAPAAEAAAAeAB8AAAAPAAEAAAAeAAAAAAAPAAEAAAAeAAEAAAAPAAEAAAAeAAIAAAAPAAEAAAAeAAMAAAAPAAEAAAAeAAQAAAAPAAEAAAAeAAUAAAAPAAEAAAAeAAYAAAAPAAEAAAAeAAcAAAAPAAEAAAAeAAgAAAAPAAEAAAAeAAkAAAAPAAEAAAAeAAoAAAAPAAEAAAAeAAsAAAAPAAEAAAAeAAwAAAAPAAEAAAAeAA0AAAAPAAEAAAAeAA4AAAAPAAEAAAAeAA8AAAAPAAEAAAAeABAAAAAPAAEAAAAeABEAAAAPAAEAAAAeABIAAAAPAAEAAAAeABMAAAAPAAEAAAAeABQAAAAPAAEAAAAeABUAAAAPAAEAAAAeABYAAAAPAAEAAAAeABcAAAAPAAEAAAAeABgAAAAPAAEAAAAeABkAAAAPAAEAAAAeABoAAAAPAAEAAAAeABsAAAAPAAEAAAAeABwAAAAPAAEAAAAeAB0AAAAPAAEAAAAeAB4AAAAPAAEAAAABAAAAAAAPAAEAAAACAAAAAAAPAAEAAAADAAAAAAAPAAEAAAAEAAAAAAAPAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAEAAAAHAAAAAAAPAAEAAAAIAAAAAAAPAAEAAAAJAAAAAAAPAAEAAAAKAAAAAAAPAAEAAAALAAAAAAAPAAEAAAAMAAAAAAAPAAEAAAANAAAAAAAPAAEAAAAOAAAAAAAPAAEAAAAPAAAAAAAPAAEAAAAQAAAAAAAPAAEAAAARAAAAAAAPAAEAAAASAAAAAAAPAAEAAAATAAAAAAAPAAEAAAAUAAAAAAAPAAEAAAAVAAAAAAAPAAEAAAAWAAAAAAAPAAEAAAAXAAAAAAAPAAEAAAAYAAAAAAAPAAEAAAAZAAAAAAAPAAEAAAAaAAAAAAAPAAEAAAAbAAAAAAAPAAEAAAAcAAAAAAAPAAEAAAAdAAAAAAAPAAEAAAABAB8AAAAPAAEAAAACAB8AAAAPAAEAAAADAB8AAAAPAAEAAAAEAB8AAAAPAAEAAAAFAB8AAAAPAAEAAAAGAB8AAAAPAAEAAAAHAB8AAAAPAAEAAAAIAB8AAAAPAAEAAAAJAB8AAAAPAAEAAAAKAB8AAAAPAAEAAAALAB8AAAAPAAEAAAAMAB8AAAAPAAEAAAANAB8AAAAPAAEAAAAOAB8AAAAPAAEAAAAPAB8AAAAPAAEAAAAQAB8AAAAPAAEAAAARAB8AAAAPAAEAAAASAB8AAAAPAAEAAAATAB8AAAAPAAEAAAAUAB8AAAAPAAEAAAAVAB8AAAAPAAEAAAAWAB8AAAAPAAEAAAAXAB8AAAAPAAEAAAAYAB8AAAAPAAEAAAAZAB8AAAAPAAEAAAAaAB8AAAAPAAEAAAAbAB8AAAAPAAEAAAAcAB8AAAAPAAEAAAAdAB8AAAAPAAEAAAA=")
+tile_set = SubResource("TileSet_45x5i")
+
+[node name="MovementManager" parent="." node_paths=PackedStringArray("board") instance=ExtResource("3_djx54")]
+board = NodePath("../Board")
+
+[node name="Player" parent="." node_paths=PackedStringArray("movement_manager") instance=ExtResource("3_k86hv")]
+movement_manager = NodePath("../MovementManager")
+
+[node name="Spawner1" parent="." instance=ExtResource("4_is3dy")]
+position = Vector2(183, 119)
+
+[node name="FallableCoin" parent="Spawner1" instance=ExtResource("6_46qwn")]
+
+[node name="FallableDamage" parent="Spawner1" instance=ExtResource("5_tdwdi")]
+
+[node name="FallableHeal" parent="Spawner1" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner1" instance=ExtResource("7_qys2h")]
+
+[node name="FallableShield" parent="Spawner1" instance=ExtResource("9_djx54")]
+
+[node name="Spawner2" parent="." instance=ExtResource("4_is3dy")]
+position = Vector2(183, 119)
+
+[node name="FallableCoin" parent="Spawner2" instance=ExtResource("6_46qwn")]
+
+[node name="FallableDamage" parent="Spawner2" instance=ExtResource("5_tdwdi")]
+
+[node name="FallableHeal" parent="Spawner2" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner2" instance=ExtResource("7_qys2h")]
+
+[node name="FallableShield" parent="Spawner2" instance=ExtResource("9_djx54")]
+
+[node name="Spawner3" parent="." instance=ExtResource("4_is3dy")]
+position = Vector2(366, 238)
+
+[node name="FallableCoin" parent="Spawner3" instance=ExtResource("6_46qwn")]
+
+[node name="FallableDamage" parent="Spawner3" instance=ExtResource("5_tdwdi")]
+
+[node name="FallableHeal" parent="Spawner3" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner3" instance=ExtResource("7_qys2h")]
+
+[node name="FallableShield" parent="Spawner3" instance=ExtResource("9_djx54")]
+
+[node name="Spawner4" parent="." instance=ExtResource("4_is3dy")]
+position = Vector2(549, 357)
+
+[node name="FallableCoin" parent="Spawner4" instance=ExtResource("6_46qwn")]
+
+[node name="FallableDamage" parent="Spawner4" instance=ExtResource("5_tdwdi")]
+
+[node name="FallableHeal" parent="Spawner4" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner4" instance=ExtResource("7_qys2h")]
+
+[node name="FallableShield" parent="Spawner4" instance=ExtResource("9_djx54")]
+
+[node name="Spawner5" parent="." instance=ExtResource("4_is3dy")]
+position = Vector2(549, 357)
+
+[node name="FallableCoin" parent="Spawner5" instance=ExtResource("6_46qwn")]
+
+[node name="FallableDamage" parent="Spawner5" instance=ExtResource("5_tdwdi")]
+
+[node name="FallableHeal" parent="Spawner5" instance=ExtResource("8_imi8r")]
+
+[node name="FallableSlowMotion" parent="Spawner5" instance=ExtResource("7_qys2h")]
+
+[node name="FallableShield" parent="Spawner5" instance=ExtResource("9_djx54")]
+
+[node name="WorldBorder" type="Area2D" parent="."]
+position = Vector2(376, 704)
+script = ExtResource("6_is3dy")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorder"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -8.0
+offset_right = 376.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.60981e-07, 0.501618, 0.127517, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+light_mask = 4
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_k86hv")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="HeartsContainer" parent="UserInterface" node_paths=PackedStringArray("player") instance=ExtResource("6_tdwdi")]
+player = NodePath("../../Player")
+
+[node name="Label" type="Label" parent="UserInterface"]
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 38.0
+theme = ExtResource("2_1nki0")
+text = "Score"
+label_settings = SubResource("LabelSettings_tw3y1")
+script = ExtResource("9_tw3y1")
