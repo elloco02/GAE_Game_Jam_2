@@ -5,7 +5,7 @@ Dodgemania
 
 ### Itch.io
 Password: gae
-[Website](https://sepia2023.itch.io/)
+[Website](https://sepia2023.itch.io/dodgemania)
 
 
 ### Source-Code (GitLabGitHub)
