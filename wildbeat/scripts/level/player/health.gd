@@ -59,7 +59,6 @@ func heal(amount: int = 1) -> void:
 func play_heal_sound() -> void:
 	AudioManager.create_2d_audio_at_location(global_position, heal_sound)
 
-
 func play_damage_sound() -> void:
 	AudioManager.create_2d_audio_at_location(global_position, damage_sound)
 

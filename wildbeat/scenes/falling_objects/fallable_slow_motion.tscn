@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pkgjdocpu3eu"]
 
 [ext_resource type="Script" uid="uid://ci0lhfrxxuttf" path="res://scripts/falling_objects/fallable_slow_motion.gd" id="1_gdu5h"]
-[ext_resource type="Texture2D" uid="uid://6rkovksda7ma" path="res://asstets/godot_game.png" id="2_v36nl"]
+[ext_resource type="Texture2D" uid="uid://ddimyukgulrd2" path="res://asstets/godot_game.png" id="2_v36nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie4j"]
 size = Vector2(48, 48)

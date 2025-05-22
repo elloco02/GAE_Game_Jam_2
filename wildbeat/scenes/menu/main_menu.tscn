@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6xofj7gckonj"]
+[gd_scene load_steps=12 format=3 uid="uid://6xofj7gckonj"]
 
 [ext_resource type="Script" uid="uid://dnnboivsxqcra" path="res://scripts/user_interface/audio_button.gd" id="1_3rkf3"]
 [ext_resource type="PackedScene" uid="uid://bmbailvxo07ms" path="res://scenes/background/background.tscn" id="1_isoef"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://do5p8wqmnca6j" path="res://scenes/level/game_level.tscn" id="2_xn6kt"]
 [ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="3_isoef"]
 [ext_resource type="PackedScene" uid="uid://bkg8w0c81g0cf" path="res://scenes/menu/settings.tscn" id="3_xn6kt"]
+[ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="4_d4hu8"]
 [ext_resource type="Script" uid="uid://cg2nwubljngmy" path="res://scripts/menu/frame/frame_button.gd" id="5_isoef"]
 [ext_resource type="PackedScene" uid="uid://dd5vrwfmxvrk8" path="res://scenes/menu/credits/credit_screen.tscn" id="5_xn6kt"]
 [ext_resource type="PackedScene" uid="uid://dm7scsrhl5veb" path="res://scenes/menu/frame/frame.tscn" id="7_qgo02"]
@@ -42,8 +43,12 @@ offset_bottom = 598.0
 size_flags_horizontal = 4
 alignment = 1
 
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
 [node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_d4hu8")
 text = "Play Game"
 script = ExtResource("1_3rkf3")
 scene = ExtResource("2_xn6kt")
@@ -52,18 +57,21 @@ to_game = true
 
 [node name="ScoreboardButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_d4hu8")
 text = "Scoreboard"
 script = ExtResource("1_3rkf3")
 scene = ExtResource("3_isoef")
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_d4hu8")
 text = "Settings"
 script = ExtResource("1_3rkf3")
 scene = ExtResource("3_xn6kt")
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" node_paths=PackedStringArray("frame")]
 layout_mode = 2
+theme = ExtResource("4_d4hu8")
 text = "Credits"
 script = ExtResource("5_isoef")
 frame = NodePath("../../Credits")
@@ -75,8 +83,10 @@ layout_mode = 2
 
 [node name="QuitButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("2_3rkf3")]
 layout_mode = 2
+theme = ExtResource("4_d4hu8")
 
 [node name="Credits" parent="CanvasLayer" instance=ExtResource("7_qgo02")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

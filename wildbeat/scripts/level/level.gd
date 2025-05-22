@@ -46,3 +46,4 @@ func init_spawners() -> void:
 
 		var spawner_position = movement_manager.get_column_position(column, true)
 		spawner.position = spawner_position
+		spawner.position.y -= 180

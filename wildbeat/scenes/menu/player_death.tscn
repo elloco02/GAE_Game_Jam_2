@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://0h6n2bqnnac1"]
+[gd_scene load_steps=10 format=3 uid="uid://0h6n2bqnnac1"]
 
 [ext_resource type="Script" uid="uid://btfm72y05u284" path="res://scripts/menu/buttons/submit_button.gd" id="1_f6od2"]
 [ext_resource type="Script" uid="uid://c8e07fn3bgd32" path="res://scripts/menu/player_death.gd" id="1_gmes8"]
 [ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="2_gmes8"]
 [ext_resource type="PackedScene" uid="uid://dg4eu41s0rrxh" path="res://scenes/menu/scoreboard.tscn" id="2_o460v"]
+[ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="3_bup12"]
 [ext_resource type="PackedScene" uid="uid://dppnoqqx04gow" path="res://scenes/menu/buttons/quit_button.tscn" id="3_o460v"]
+[ext_resource type="FontFile" uid="uid://cj3nwxklulrpv" path="res://fonts/pixel_font.ttf" id="4_6qs4d"]
 [ext_resource type="PackedScene" uid="uid://bjr48vk8qg374" path="res://scenes/menu/buttons/main_menu_button.tscn" id="4_o460v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yekh7"]
@@ -51,6 +53,7 @@ offset_right = 95.0
 offset_bottom = 158.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_bup12")
 theme_override_font_sizes/font_size = 40
 text = "You Died"
 uppercase = true
@@ -67,6 +70,7 @@ offset_right = 100.0
 offset_bottom = 241.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_bup12")
 theme_override_font_sizes/font_size = 40
 uppercase = true
 
@@ -91,12 +95,15 @@ alignment = 1
 
 [node name="UsernameInput" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_bup12")
+theme_override_fonts/font = ExtResource("4_6qs4d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yekh7")
 placeholder_text = "Name"
 alignment = 1
 
 [node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_bup12")
 text = "Submit"
 script = ExtResource("1_f6od2")
 scene = ExtResource("2_o460v")
@@ -108,6 +115,7 @@ layout_mode = 2
 
 [node name="MainMenuButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_o460v")]
 layout_mode = 2
+theme = ExtResource("3_bup12")
 
 [node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)
@@ -115,3 +123,4 @@ layout_mode = 2
 
 [node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_o460v")]
 layout_mode = 2
+theme = ExtResource("3_bup12")

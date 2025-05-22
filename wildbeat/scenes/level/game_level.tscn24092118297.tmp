@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://do5p8wqmnca6j"]
+[gd_scene load_steps=17 format=3 uid="uid://do5p8wqmnca6j"]
 
 [ext_resource type="Script" uid="uid://b11mhg21yfbaq" path="res://scripts/level/level.gd" id="1_7comb"]
 [ext_resource type="Theme" uid="uid://bm5qpjcw7n65h" path="res://fonts/default.tres" id="2_1nki0"]
-[ext_resource type="Texture2D" uid="uid://jbxi4ur45xs5" path="res://scenes/level/tetrominoes.png" id="2_4k7sf"]
 [ext_resource type="Texture2D" uid="uid://lreqvck0w54m" path="res://scenes/background/bg.png" id="2_atsdl"]
 [ext_resource type="PackedScene" uid="uid://bunpa0d1qed5" path="res://scenes/level/movement_manager.tscn" id="3_djx54"]
 [ext_resource type="PackedScene" uid="uid://c7j53cdm6feex" path="res://scenes/level/player.tscn" id="3_k86hv"]
@@ -16,44 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dsvkh26rjumji" path="res://scenes/falling_objects/fallable_shield.tscn" id="9_djx54"]
 [ext_resource type="Script" uid="uid://3innvi4vd4o4" path="res://scripts/level/score.gd" id="9_tw3y1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vk10"]
-texture = ExtResource("2_4k7sf")
-11:1/0 = 0
-15:1/0 = 0
-9:1/0 = 0
-13:1/0 = 0
-7:1/0 = 0
-5:1/0 = 0
-3:1/0 = 0
-1:1/0 = 0
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-0:1/0 = 0
-2:1/0 = 0
-4:1/0 = 0
-6:1/0 = 0
-8:1/0 = 0
-10:1/0 = 0
-12:1/0 = 0
-14:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_45x5i"]
-sources/0 = SubResource("TileSetAtlasSource_8vk10")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k86hv"]
 size = Vector2(752, 16)
 
@@ -63,6 +24,7 @@ font_size = 20
 [node name="Level" type="Node2D" node_paths=PackedStringArray("movement_manager")]
 script = ExtResource("1_7comb")
 movement_manager = NodePath("MovementManager")
+player_start_column = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.709804)
@@ -73,14 +35,8 @@ theme = ExtResource("2_1nki0")
 texture = ExtResource("2_atsdl")
 expand_mode = 1
 
-[node name="Board" type="TileMapLayer" parent="."]
-visible = false
-use_parent_material = true
-tile_map_data = PackedByteArray("AAAAAAAAAAAPAAEAAAAAAAEAAAAPAAEAAAAAAAIAAAAPAAEAAAAAAAMAAAAPAAEAAAAAAAQAAAAPAAEAAAAAAAUAAAAPAAEAAAAAAAYAAAAPAAEAAAAAAAcAAAAPAAEAAAAAAAgAAAAPAAEAAAAAAAkAAAAPAAEAAAAAAAoAAAAPAAEAAAAAAAsAAAAPAAEAAAAAAAwAAAAPAAEAAAAAAA0AAAAPAAEAAAAAAA4AAAAPAAEAAAAAAA8AAAAPAAEAAAAAABAAAAAPAAEAAAAAABEAAAAPAAEAAAAAABIAAAAPAAEAAAAAABMAAAAPAAEAAAAAABQAAAAPAAEAAAAAABUAAAAPAAEAAAAAABYAAAAPAAEAAAAAABcAAAAPAAEAAAAAABgAAAAPAAEAAAAAABkAAAAPAAEAAAAAABoAAAAPAAEAAAAAABsAAAAPAAEAAAAAABwAAAAPAAEAAAAAAB0AAAAPAAEAAAAAAB4AAAAPAAEAAAAAAB8AAAAPAAEAAAAeAB8AAAAPAAEAAAAeAAAAAAAPAAEAAAAeAAEAAAAPAAEAAAAeAAIAAAAPAAEAAAAeAAMAAAAPAAEAAAAeAAQAAAAPAAEAAAAeAAUAAAAPAAEAAAAeAAYAAAAPAAEAAAAeAAcAAAAPAAEAAAAeAAgAAAAPAAEAAAAeAAkAAAAPAAEAAAAeAAoAAAAPAAEAAAAeAAsAAAAPAAEAAAAeAAwAAAAPAAEAAAAeAA0AAAAPAAEAAAAeAA4AAAAPAAEAAAAeAA8AAAAPAAEAAAAeABAAAAAPAAEAAAAeABEAAAAPAAEAAAAeABIAAAAPAAEAAAAeABMAAAAPAAEAAAAeABQAAAAPAAEAAAAeABUAAAAPAAEAAAAeABYAAAAPAAEAAAAeABcAAAAPAAEAAAAeABgAAAAPAAEAAAAeABkAAAAPAAEAAAAeABoAAAAPAAEAAAAeABsAAAAPAAEAAAAeABwAAAAPAAEAAAAeAB0AAAAPAAEAAAAeAB4AAAAPAAEAAAABAAAAAAAPAAEAAAACAAAAAAAPAAEAAAADAAAAAAAPAAEAAAAEAAAAAAAPAAEAAAAFAAAAAAAPAAEAAAAGAAAAAAAPAAEAAAAHAAAAAAAPAAEAAAAIAAAAAAAPAAEAAAAJAAAAAAAPAAEAAAAKAAAAAAAPAAEAAAALAAAAAAAPAAEAAAAMAAAAAAAPAAEAAAANAAAAAAAPAAEAAAAOAAAAAAAPAAEAAAAPAAAAAAAPAAEAAAAQAAAAAAAPAAEAAAARAAAAAAAPAAEAAAASAAAAAAAPAAEAAAATAAAAAAAPAAEAAAAUAAAAAAAPAAEAAAAVAAAAAAAPAAEAAAAWAAAAAAAPAAEAAAAXAAAAAAAPAAEAAAAYAAAAAAAPAAEAAAAZAAAAAAAPAAEAAAAaAAAAAAAPAAEAAAAbAAAAAAAPAAEAAAAcAAAAAAAPAAEAAAAdAAAAAAAPAAEAAAABAB8AAAAPAAEAAAACAB8AAAAPAAEAAAADAB8AAAAPAAEAAAAEAB8AAAAPAAEAAAAFAB8AAAAPAAEAAAAGAB8AAAAPAAEAAAAHAB8AAAAPAAEAAAAIAB8AAAAPAAEAAAAJAB8AAAAPAAEAAAAKAB8AAAAPAAEAAAALAB8AAAAPAAEAAAAMAB8AAAAPAAEAAAANAB8AAAAPAAEAAAAOAB8AAAAPAAEAAAAPAB8AAAAPAAEAAAAQAB8AAAAPAAEAAAARAB8AAAAPAAEAAAASAB8AAAAPAAEAAAATAB8AAAAPAAEAAAAUAB8AAAAPAAEAAAAVAB8AAAAPAAEAAAAWAB8AAAAPAAEAAAAXAB8AAAAPAAEAAAAYAB8AAAAPAAEAAAAZAB8AAAAPAAEAAAAaAB8AAAAPAAEAAAAbAB8AAAAPAAEAAAAcAB8AAAAPAAEAAAAdAB8AAAAPAAEAAAA=")
-tile_set = SubResource("TileSet_45x5i")
-
 [node name="MovementManager" parent="." node_paths=PackedStringArray("board") instance=ExtResource("3_djx54")]
-board = NodePath("../Board")
+board = NodePath("")
 
 [node name="Player" parent="." node_paths=PackedStringArray("movement_manager") instance=ExtResource("3_k86hv")]
 movement_manager = NodePath("../MovementManager")

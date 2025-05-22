@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmbailvxo07ms"]
 
-[ext_resource type="Texture2D" uid="uid://dbhi62j7h40jd" path="res://icon.svg" id="2_pesyb"]
+[ext_resource type="Texture2D" uid="uid://ddimyukgulrd2" path="res://asstets/godot_game.png" id="1_tp5tj"]
 [ext_resource type="Script" uid="uid://c4ymt8qoeouc1" path="res://scripts/background/sprite_scale.gd" id="3_ewwm8"]
 [ext_resource type="Script" uid="uid://lgusfnshy8qw" path="res://scripts/background/sprite_wobble.gd" id="3_rsf5d"]
 [ext_resource type="Script" uid="uid://b1iiadfdv3e05" path="res://scripts/background/sprite_rotate.gd" id="4_ewwm8"]
@@ -12,30 +12,48 @@
 
 [node name="SpriteWobble" type="Sprite2D" parent="."]
 position = Vector2(193, 132)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(2, 67, 12, 12)
 script = ExtResource("3_rsf5d")
 
 [node name="SpriteScale" type="Sprite2D" parent="."]
 position = Vector2(549, 176)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(2, 83, 12, 12)
 script = ExtResource("3_ewwm8")
 
 [node name="SpriteRotate" type="Sprite2D" parent="."]
 position = Vector2(624, 488)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(3, 98, 10, 13)
 script = ExtResource("4_ewwm8")
 
 [node name="SpriteLeftRight" type="Sprite2D" parent="."]
 position = Vector2(205, 415)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(1, 114, 14, 13)
 script = ExtResource("5_jjv1t")
 
 [node name="SpriteUpDown" type="Sprite2D" parent="."]
 position = Vector2(432, 536)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(1, 129, 14, 14)
 script = ExtResource("6_03sym")
 
 [node name="SpriteRightLeftRotate" type="Sprite2D" parent="."]
 position = Vector2(258, 274)
-texture = ExtResource("2_pesyb")
+scale = Vector2(4, 4)
+texture = ExtResource("1_tp5tj")
+region_enabled = true
+region_rect = Rect2(3, 98, 10, 13)
 script = ExtResource("7_tp5tj")
