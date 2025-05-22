@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://qofjtjsd0h55"]
+[gd_scene load_steps=4 format=3 uid="uid://qofjtjsd0h55"]
 
 [ext_resource type="Script" uid="uid://co38e2ys5xnq5" path="res://scripts/falling_objects/fallable_heal.gd" id="1_ql722"]
+[ext_resource type="Texture2D" uid="uid://6rkovksda7ma" path="res://asstets/godot_game.png" id="2_p23xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie4j"]
 size = Vector2(48, 48)
@@ -14,9 +15,8 @@ metadata/_custom_type_script = "uid://co38e2ys5xnq5"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2ie4j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
-color = Color(0.113512, 0.503188, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_p23xd")
+region_enabled = true
+region_rect = Rect2(0, 64, 16, 16)

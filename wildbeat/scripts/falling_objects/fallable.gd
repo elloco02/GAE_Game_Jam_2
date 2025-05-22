@@ -15,6 +15,7 @@ extends Area2D
 @export_subgroup("Fallable Sound Effects")
 @export var player_hit_sound: SoundEffectSettings.SOUND_EFFECT_TYPE = SoundEffectSettings.SOUND_EFFECT_TYPE.NONE
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 enum Types {
 	NONE,
@@ -41,10 +42,10 @@ func handle_body_entered(body: Node) -> void:
 		play_player_hit_sound()
 		play_particles(body)
 		on_player_entered(body)
+		sprite_2d.queue_free()
 	elif body is Fallable:
 		on_fallable_entered(body)
 	remove_fallable()
-
 
 # Should be implemented by the inheriting classes
 func on_player_entered(_player: Player) -> void:

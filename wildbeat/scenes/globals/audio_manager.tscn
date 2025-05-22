@@ -98,7 +98,7 @@ metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 script = ExtResource("2_hmupl")
 type = 10
 sound_effect = ExtResource("13_adr3j")
-volume = 0
+volume = 10
 bus = "Sfx"
 metadata/_custom_type_script = "uid://dfdqakfebv1kp"
 

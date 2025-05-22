@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7o2osjxi716y"]
+[gd_scene load_steps=6 format=3 uid="uid://c7o2osjxi716y"]
 
 [ext_resource type="Script" uid="uid://cgbdk13tjuf84" path="res://scripts/falling_objects/fallable_coin.gd" id="1_kvgtr"]
 [ext_resource type="PackedScene" uid="uid://dxbx2pvg5k61q" path="res://scenes/falling_objects/particles/universal_collect_particles.tscn" id="2_tujqf"]
+[ext_resource type="Texture2D" uid="uid://6rkovksda7ma" path="res://asstets/godot_game.png" id="3_a20aj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvgtr"]
 size = Vector2(48, 48)
@@ -22,6 +23,7 @@ metadata/_custom_type_script = "uid://cgbdk13tjuf84"
 shape = SubResource("RectangleShape2D_kvgtr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -24.0
 offset_top = -24.0
 offset_right = 24.0
@@ -32,3 +34,9 @@ color = Color(1, 0.933333, 0.345098, 1)
 emitting = false
 one_shot = true
 color_ramp = SubResource("Gradient_tujqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("3_a20aj")
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)

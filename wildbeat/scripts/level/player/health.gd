@@ -2,6 +2,8 @@ class_name Health
 
 extends Node2D
 
+@onready var animation_handler: AnimationPlayerTest = $"../AnimationPlayer"
+
 @export_subgroup("Health Settings")
 @export var max_health: int = 3
 
@@ -39,6 +41,7 @@ func damage(attack: int = 1) -> void:
 			died.emit()
 			play_death_sound()
 		else:
+			animation_handler.play_take_damage()
 			play_damage_sound()
 
 
@@ -52,7 +55,6 @@ func heal(amount: int = 1) -> void:
 	play_heal_sound()
 	if heal_particle:
 		heal_particle.emitting = true
-
 
 func play_heal_sound() -> void:
 	AudioManager.create_2d_audio_at_location(global_position, heal_sound)
